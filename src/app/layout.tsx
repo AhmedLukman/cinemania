@@ -3,6 +3,15 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
+// Import the Font Awesome styles manually
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+// Get the configuration object
+import { config } from "@fortawesome/fontawesome-svg-core";
+
+// Prevent Font Awesome from adding its CSS since we did it manually above
+config.autoAddCss = false;
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
