@@ -1,10 +1,16 @@
-import { Button } from "@nextui-org/button";
-import Image from "next/image";
+"use client";
 
-export default function Home() {
-  return (
-   <main>
-    <Button> Hello </Button>
-   </main>
-  );
-}
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+const Home = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace("/movie");
+  }, [router]);
+
+  return null;
+};
+
+export default Home;
