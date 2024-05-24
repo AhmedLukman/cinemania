@@ -3,7 +3,6 @@
 import React from "react";
 import MiniSlider from "./MiniSlider";
 import BigSlider from "./BigSlider";
-import { useDoubleSlider } from "@/app/hooks/useDoubleSlider";
 import ScrollToTop from "react-scroll-to-top";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
@@ -11,6 +10,7 @@ import { TMovie, TTVShow } from "@/lib/types";
 import { MediaType } from "@/lib/constants";
 import PosterContent from "../hero/PosterContent";
 import PosterContainer from "../hero/PosterContainer";
+import { useDoubleSlider } from "@/hooks/useDoubleSlider";
 
 const DoubleSlider = ({
   type,
