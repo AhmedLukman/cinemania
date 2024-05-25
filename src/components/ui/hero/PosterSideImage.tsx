@@ -11,7 +11,7 @@ const PosterSideImage = ({
   title: string;
 }) => {
   return (
-    <aside className="mt-10 hidden md:block w-1/3 h-[80svh] rounded-xl relative">
+    <aside className="mt-10 hidden md:block w-1/2 lg:w-1/3 h-[80svh] rounded-xl relative">
       <Image
         unoptimized
         className=" object-cover"
