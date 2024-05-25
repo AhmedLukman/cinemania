@@ -330,19 +330,6 @@ export type TSingleTVSeasonResponse = {
   vote_average: number;
 };
 
-// export type TMediaCategory =
-//   | { type: Category.Season; media: Season[] }
-//   | { type: Category.Network; media: Network[] }
-//   | { type: Category.CreatedBy; media: CreatedBy[] }
-//   | { type: Category.Cast; media: TCast[] }
-//   | { type: Category.Crew; media: TCrew[] }
-//   | { type: Category.NowPlaying; media: TMovie[] }
-//   | { type: Category.Trending; media: TTVShow[] | TMovie[] }
-//   | { type: Category.Recommended; media: TTVShow[] | TMovie[] }
-//   | { type: Category.Similar; media: TTVShow[] | TMovie[] }
-//   | { type: Category.TopRated; media: TTVShow[] | TMovie[] }
-//   | { type: Category.Upcoming; media: TTVShow[] | TMovie[] };
-
 export type TMediaCategoryArray =
   | TMovie[]
   | TTVShow[]
@@ -435,31 +422,3 @@ export type TMediaCredits =
 export type TMediaActions =
   | { type: PosterType.TV; media: TTVShow }
   | { type: PosterType.Movie; media: TMovie };
-
-// export type TPosterContainer =
-// | { type: PosterType.TV; media: TTVShow }
-// | { type: PosterType.Movie; media: TMovie }
-//   | {
-//       type: PosterType.singleTVSeason;
-//       media: TSingleTVSeasonResponse & { season: string };
-//     }
-//   | {
-//       type: PosterType.TVDetails;
-//       media: TTVShowDetailsResponse;
-//       credits: TMediaCreditsResponse; // Making credits mandatory
-//     }
-//   | {
-//       type: PosterType.MovieDetails;
-//       media: TMovieDetailsResponse;
-//       credits: TMediaCreditsResponse; // Making credits mandatory
-//     }
-//   | {
-//       type: Exclude<
-//         PosterType,
-//         | PosterType.TV
-//         | PosterType.Movie
-//         | PosterType.TVDetails
-//         | PosterType.MovieDetails
-//       >;
-//       media: TTVShow | TMovie | (TSingleTVSeasonResponse & { season: string });
-//     };
