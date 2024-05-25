@@ -1,3 +1,5 @@
+'use client'
+
 import React, { ReactNode } from "react";
 import Slider from "react-slick";
 import { generateMediaCategorySliderSettings } from "@/lib/utils";

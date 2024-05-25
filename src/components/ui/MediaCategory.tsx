@@ -1,8 +1,5 @@
-"use client";
-
 import React, { PropsWithChildren } from "react";
 import { TMediaCategoryArray } from "@/lib/types";
-import { getPath } from "@/lib/utils";
 import ViewMoreBtn from "./ViewMoreBtn";
 
 const MediaCategory = ({
