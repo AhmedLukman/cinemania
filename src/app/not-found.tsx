@@ -4,13 +4,14 @@ import React from "react";
 
 const NotFound = () => {
   return (
-    <div className="w-screen h-screen text-white">
+    <div className="w-screen h-screen text-white relative">
       <Header />
       <Image
         src={"/assets/images/superman404.jpeg"}
         alt="Superman"
         className=" object-cover object-center"
-        layout="fill"
+        priority
+        fill
       />
       <div className="absolute bottom-[5%] md:bottom-[15%] flex justify-center items-center w-full px-5 text-xl ">
         <h3 className="max-w-md text-center">
