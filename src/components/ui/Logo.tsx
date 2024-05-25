@@ -7,7 +7,7 @@ const Logo = () => {
       alt="Cinemania logo"
       priority
       width={100}
-      height={100}
+      height={27}
     />
   );
 }
