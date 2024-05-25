@@ -65,37 +65,6 @@ export const fetchMedia = async (url: string) => {
   return result;
 };
 
-// export const getImageSrc = ({ media, type }: TAllCategory & {imageSize: ImageSize}) =>
-//   type === Category.Season
-//     ? BASE_URL + "w500" + media.poster_path
-//     : type === Category.Cast ||  type === Category.Crew || type === Category.CreatedBy ? BASE_URL + imageSize + media.profile_path
-//     : type === Category.Network ? BASE_URL + imageSize  + media.logo_path
-//     : type === Category.NowPlaying ? BASE_URL + imageSize + media.
-
-// export const getPath = (
-//   pathname: string,
-//   media:
-//     | TTVShow
-//     | TMovie
-//     | (TSingleTVSeasonResponse & { season: string })
-//     | TTVShowDetailsResponse
-//     | TMovieDetailsResponse
-// ) => {
-//   if (typeof media === "object") {
-//     if (
-//       ("character" in media && media.character) ||
-//       ("job" in media && media.job)
-//     )
-//       return `/people/${media.id}`;
-
-//     if ("season_number" in media && media.season_number)
-//       return `/tv/${media.id}/season/${media.season_number}`;
-//   }
-//   if (pathname.includes("movie")) return `/movie/${media.id}`;
-//   if (pathname.includes("tv")) return `/tv/${media.id}`;
-//   return "";
-// };
-
 export const generateBuzzWord = (id: string) => {
   const buzz = id
     ? id === "top-rated" || id === "now-playing"
@@ -168,29 +137,6 @@ export const getImageUrl = (path: string, size: string = ImageSize.Medium) =>
 export const getDirector = (credits: TMediaCreditsResponse) =>
   credits?.crew?.find((person) => person.job === "Director");
 
-// export const getCategoryHeading = (type: CategoryType) => {
-//   return type === CategoryType.Cast
-//     ? "Cast"
-//     : type === CategoryType.Crew
-//     ? "Crew"
-//     : type === CategoryType.Season
-//     ? "Season"
-//     : type === CategoryType.Network
-//     ? "Network"
-//     : type === CategoryType.Recommended
-//     ? "Recommended"
-//     : type === CategoryType.Similar
-//     ? "Similar"
-//     : type === CategoryType.NowPlaying
-//     ? "Now Playing"
-//     : type === CategoryType.TopRated
-//     ? "Top Rated"
-//     : type === CategoryType.Trending
-//     ? "Trending"
-//     : type === CategoryType.Upcoming
-//     ? "Upcoming"
-//     : null;
-// };
 
 export const getPath = (type: CategoryType, id: number) => {
   return type === CategoryType.Cast
