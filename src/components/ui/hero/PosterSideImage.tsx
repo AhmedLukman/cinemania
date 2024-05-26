@@ -19,6 +19,7 @@ const PosterSideImage = ({
         src={getImageUrl(posterPath)}
         alt={title}
         fill
+        priority
       />
     </aside>
   );
