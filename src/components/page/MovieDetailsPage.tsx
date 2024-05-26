@@ -43,10 +43,9 @@ const MovieDetailsPage = ({
         <div
           style={{
             backgroundImage: `url(${img})`,
-            backgroundAttachment: "fixed",
             backgroundPosition: "50% 20%",
           }}
-          className={`px-3 py-7 md:px-10 md:py-16 bg-center bg-no-repeat bg-cover relative`}
+          className={`px-3 py-7 bg-fixed md:px-10 md:py-16 bg-center bg-no-repeat bg-cover relative`}
         >
           <div className="absolute inset-0 bg-black bg-opacity-60" />
           <div className="relative z-10">
