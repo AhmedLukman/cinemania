@@ -1,7 +1,5 @@
 import React from "react";
-
 import MediaActions from "./MediaActions";
-import { cn } from "@nextui-org/react";
 import {
   TMediaCreditsResponse,
   TMovieDetailsResponse,
@@ -27,6 +25,7 @@ const DetailsPosterContent = ({
       type: MediaType.TVDetails;
       credits: TMediaCreditsResponse;
     }) => {
+
   return (
     <div className="md:w-2/3 min-h-[75svh] relative z-10 pt-24 pb-10">
       <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold font-serif max-w-3xl">
@@ -37,9 +36,9 @@ const DetailsPosterContent = ({
       )}
       {type === MediaType.TVDetails && <MediaInfo media={media} type={type} />}
       <p
-        className={cn("max-w-prose mt-10 line-clamp-3", {
-          "line-clamp-none": "revenue" in media,
-        })}
+        className={`max-w-prose mt-10 ${
+          "revenue" in media ? "" : "line-clamp-3"
+        }`}
       >
         {media.overview}
       </p>
