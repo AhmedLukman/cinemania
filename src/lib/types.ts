@@ -270,6 +270,14 @@ export type TMedia =
   | Episode[]
   | Network[];
 
+  export type TMediaGrid =
+    | TCast[]
+    | TCrew[]
+    | TMovie[]
+    | TTVShow[]
+    | TPeople[]
+    | Episode[];
+
 export type TMediaCard =
   | TMovie
   | TTVShow
