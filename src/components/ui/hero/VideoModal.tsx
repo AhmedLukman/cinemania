@@ -10,7 +10,7 @@ import {
   Button,
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
-import { fetchMedia, getPath } from "@/lib/utils";
+import { getMedia, getPath } from "@/lib/utils";
 import { TVideo, TVideoModal, TVideoResponse } from "@/lib/types";
 import { MoviesUrl, TVShowsUrl } from "@/lib/constants";
 
@@ -45,7 +45,7 @@ const VideoModal = ({
   useEffect(() => {
     const fetchVideoData = async () => {
       try {
-        const videoRes = (await fetchMedia(path)) as TVideoResponse;
+        const videoRes = (await getMedia(path)) as TVideoResponse;
         setVideoData(videoRes?.results);
       } catch (error) {
         setError("Failed to fetch data");

@@ -50,7 +50,7 @@ export const getGenreNameById = (genreId: number) => {
   return genre ? genre.name : "Unknown"; // If genre is found, return its name, otherwise return "Unknown"
 };
 
-export const fetchMedia = async (url: string) => {
+export const getMedia = async (url: string) => {
   let result;
   try {
     const res = await fetch(url, MEDIA_OPTIONS);
@@ -83,7 +83,7 @@ export const fetchCredits = async (
   id: string,
   role: "cast" | "crew"
 ) => {
-  const credits = (await fetchMedia(
+  const credits = (await getMedia(
     url + id + "/credits?language=en-US"
   )) as TMediaCreditsResponse;
   return role === "cast" ? credits.cast : credits.crew;
@@ -94,7 +94,7 @@ export const fetchRelatedMedia = async (
   url: string,
   id: string
 ) => {
-  const { results } = (await fetchMedia(
+  const { results } = (await getMedia(
     url + id + endpoint
   )) as TMediaResponse<TTVShow>;
   return results;
@@ -137,7 +137,6 @@ export const getImageUrl = (path: string, size: string = ImageSize.Medium) =>
 export const getDirector = (credits: TMediaCreditsResponse) =>
   credits?.crew?.find((person) => person.job === "Director");
 
-
 export const getPath = (type: CategoryType, id: number) => {
   return type === CategoryType.Cast
     ? `/tv/${id}/people/cast`
@@ -158,8 +157,19 @@ export const getPath = (type: CategoryType, id: number) => {
     : null;
 };
 
-export const getMediaTitle = (media: TTVShow | TMovie | TMovieDetailsResponse | TTVShowDetailsResponse | TSingleTVSeasonResponse) =>
-  "original_title" in media ? media.original_title : "original_name" in media ? media.original_name : media.name;
+export const getMediaTitle = (
+  media:
+    | TTVShow
+    | TMovie
+    | TMovieDetailsResponse
+    | TTVShowDetailsResponse
+    | TSingleTVSeasonResponse
+) =>
+  "original_title" in media
+    ? media.original_title
+    : "original_name" in media
+    ? media.original_name
+    : media.name;
 
 export const getAge = (birthday: string) => {
   const birthDate = new Date(birthday);
@@ -178,6 +188,13 @@ export const getAge = (birthday: string) => {
   }
 
   return age;
-}
+};
 
-export const getGender = (number: number) => number === 0 ? 'Unspecified' : number === 1 ? 'Female' : number === 2 ? 'Male' : 'Not known'
+export const getGender = (number: number) =>
+  number === 0
+    ? "Unspecified"
+    : number === 1
+    ? "Female"
+    : number === 2
+    ? "Male"
+    : "Not known";

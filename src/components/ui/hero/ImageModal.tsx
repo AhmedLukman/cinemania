@@ -10,7 +10,7 @@ import {
   Button,
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
-import { dataUrl, fetchMedia, getImageUrl, getPath } from "@/lib/utils";
+import { dataUrl, getMedia, getImageUrl, getPath } from "@/lib/utils";
 import Image from "next/image";
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
 import { ImageSize, MoviesUrl, TVShowsUrl } from "@/lib/constants";
@@ -53,7 +53,7 @@ const ImageModal = ({
   useEffect(() => {
     const fetchimageData = async () => {
       try {
-        const imageRes = (await fetchMedia(path)) as TImageResponse;
+        const imageRes = (await getMedia(path)) as TImageResponse;
         setImageData(imageRes);
       } catch (error) {
         setError("Failed to fetch data");

@@ -1,23 +1,23 @@
 import MoviesPage from "@/components/page/MoviesPage";
 import { MoviesUrl } from "@/lib/constants";
 import { TMediaResponse, TMovie } from "@/lib/types";
-import { fetchMedia } from "@/lib/utils";
+import { getMedia } from "@/lib/utils";
 import React from "react";
 
 const MoviesPageDataFetch = async () => {
-  const { results: popularMovies } = (await fetchMedia(
+  const { results: popularMovies } = (await getMedia(
     MoviesUrl.Popular + "?language=en-US&page=1"
   )) as TMediaResponse<TMovie>;
-  const { results: trendingDailyMovies } = (await fetchMedia(
+  const { results: trendingDailyMovies } = (await getMedia(
     MoviesUrl.Trending + "/day?language=en-US"
   )) as TMediaResponse<TMovie>;
-  const { results: upcomingMovies } = (await fetchMedia(
+  const { results: upcomingMovies } = (await getMedia(
     MoviesUrl.Upcoming + "?language=en-US&page=1"
   )) as TMediaResponse<TMovie>;
-  const { results: nowPlayingMovies } = (await fetchMedia(
+  const { results: nowPlayingMovies } = (await getMedia(
     MoviesUrl.Playing + "?language=en-US&page=1"
   )) as TMediaResponse<TMovie>;
-  const { results: topRatedMovies } = (await fetchMedia(
+  const { results: topRatedMovies } = (await getMedia(
     MoviesUrl.TopRated + "?language=en-US&page=1"
   )) as TMediaResponse<TMovie>;
   return (

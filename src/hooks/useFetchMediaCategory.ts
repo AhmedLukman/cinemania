@@ -1,5 +1,5 @@
 import { TMediaResponse } from "@/lib/types";
-import { fetchMedia } from "@/lib/utils";
+import { getMedia } from "@/lib/utils";
 import { useEffect } from "react";
 
 const useFetchMediaCategory = <T>({
@@ -18,7 +18,7 @@ const useFetchMediaCategory = <T>({
   useEffect(() => {
     const fetch = async () => {
       setIsLoading(true);
-      const response = (await fetchMedia(
+      const response = (await getMedia(
         `${url}?language=en-US&page=${currentPage}`
       )) as TMediaResponse<T>;
       setMedia(response.results);
