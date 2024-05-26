@@ -37,6 +37,7 @@ const PosterContainer = ({
         )}
         alt={getMediaTitle(media) + " backdrop"}
         fill
+        priority
       />
 
       {/* Backdrop */}
