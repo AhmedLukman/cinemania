@@ -4,8 +4,7 @@ export const MEDIA_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZmM1NzhlZmRjMTUxMWQzNmRhNzQ5OTFmM2MxY2JlOSIsInN1YiI6IjY1ZGRlY2JlYzkyYzVkMDE2MzQ3NWY0MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DqTP9erV2P9APWWUGBDG7N1jTx6Q26q9dADAy4aU1vY",
+    Authorization: `Bearer ${process.env.TMDB_AUTH}`,
   },
 };
 
