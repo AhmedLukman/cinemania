@@ -4,6 +4,8 @@ import { TMediaResponse, TMovie } from "@/lib/types";
 import { getMedia } from "@/lib/utils";
 import React from "react";
 
+export const revalidate = 3600 // revalidate at most every hour
+
 const MoviesPageDataFetch = async () => {
   const { results: popularMovies } = (await getMedia(
     MoviesUrl.Popular + "?language=en-US&page=1"
