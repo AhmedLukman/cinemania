@@ -46,7 +46,7 @@ const MovieCategoryPage = ({ params: { id } }: { params: { id: string } }) => {
         isLoading={isLoading}
         setValue={setValue}
         value={value}
-        heading="Movies"
+        type="Movies"
       />
       <MediaGrid path="movie" media={media} />
       <div className="flex mt-10 justify-center items-center">
