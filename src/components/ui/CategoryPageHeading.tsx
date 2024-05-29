@@ -1,4 +1,4 @@
-import { generateBuzzWord } from "@/lib/utils";
+import { getCategoryHeading } from "@/lib/utils";
 import React from "react";
 import SelectUI from "./SelectUI";
 
@@ -18,7 +18,7 @@ const CategoryPageHeading = ({
   return (
     <div className="flex items-center justify-between">
       <h1 className="text-3xl font-serif text-white my-10 mx-2 md:mx-4">
-        {generateBuzzWord(id)} {type}
+        {getCategoryHeading(id)} {type}
       </h1>
       {id === "trending" && (
         <SelectUI isLoading={isLoading} setValue={setValue} value={value} />

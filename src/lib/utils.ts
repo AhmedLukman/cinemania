@@ -65,17 +65,13 @@ export const getMedia = async (url: string) => {
   return result;
 };
 
-export const generateBuzzWord = (id: string) => {
-  const buzz = id
-    ? id === "top-rated" || id === "now-playing"
-      ? id
-          .split("-")
-          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(" ")
-      : id.charAt(0).toUpperCase() + id.slice(1)
-    : "";
-
-  return buzz;
+export const getCategoryHeading = (id: string) => {
+  return id.includes("-")
+    ? id
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ")
+    : id.charAt(0).toUpperCase() + id.slice(1);
 };
 
 export const fetchCredits = async (
