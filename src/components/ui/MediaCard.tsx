@@ -50,17 +50,17 @@ const MediaCard = ({
           unoptimized
           placeholder={dataUrl as PlaceholderValue}
           alt={"imageAlt"}
-          className="object-cover md:group-hover:scale-110 transition duration-300"
+          className="object-cover md:group-hover:scale-110 transition duration-200"
           fill
           src={
             imagePath ? getImageUrl(imagePath) : "/assets/images/avatar.jpeg"
           }
         />
         {/* Hover overlay */}
-        <div className="w-full h-full bg-black opacity-0 active:bg-black/50 md:group-hover:opacity-75 transition duration-300 z-20"></div>
+        <div className="w-full h-full bg-black opacity-0 active:bg-black/50 md:group-hover:opacity-75 transition duration-200 z-20"></div>
         <div
           className={cn(
-            "absolute  flex-col bottom-2 w-full md:group-hover:bottom-40 z-30 transition-all duration-500 flex items-center justify-center",
+            "absolute  flex-col bottom-2 w-full md:group-hover:bottom-[10.5rem] z-30 transition-hover duration-200 flex items-center justify-center",
             { "bg-black/80 py-2 px-4": isPerson }
           )}
         >
