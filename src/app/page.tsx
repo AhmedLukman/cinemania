@@ -1,14 +1,7 @@
-"use client";
-
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { redirect } from "next/navigation";
 
 const Home = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.replace("/movie");
-  }, [router]);
+  redirect("/movie");
 
   return null;
 };
