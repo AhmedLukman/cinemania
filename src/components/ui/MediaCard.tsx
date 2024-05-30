@@ -1,9 +1,6 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
-import { Card, cn } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
+import { Card, Link, cn } from "@nextui-org/react";
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
 import { dataUrl, getImageUrl } from "@/lib/utils";
 import { TMediaCategory } from "@/lib/types";
@@ -15,7 +12,6 @@ const MediaCard = ({
   media: TMediaCategory;
   path: string;
 }) => {
-  const router = useRouter();
   const imagePath =
     "poster_path" in media
       ? media.poster_path
@@ -34,10 +30,11 @@ const MediaCard = ({
       : "original_title" in media
       ? media.original_title
       : media.name;
-
   return (
-    <div className="px-2 md:px-4" onClick={() => router.push(path)}>
+    <div className="px-2 md:px-4">
       <Card
+        as={Link}
+        href={path}
         radius="lg"
         className="border-none cursor-pointer relative group h-72 md:h-[430px] shadow-sm shadow-gray-500"
       >
