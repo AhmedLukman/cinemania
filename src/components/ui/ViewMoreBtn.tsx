@@ -1,14 +1,11 @@
-'use client'
-
-import { Button } from '@nextui-org/react';
-import { useRouter } from 'next/navigation';
+import { Button, Link } from '@nextui-org/react';
 import React from 'react'
 
 const ViewMoreBtn = ({path}: {path: string}) => {
-  const router = useRouter();
   return (
     <Button
-      onPress={() => router.push(path)}
+      as={Link}
+      href={path}
       className="text-white"
       variant="bordered"
     >
