@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import MediaCategorySlider from "@/components/ui/sliders/MediaCategorySlider";
 import DoubleSlider from "@/components/ui/sliders/DoubleSlider";
