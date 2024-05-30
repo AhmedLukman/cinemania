@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./providers";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,6 +10,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 
 // Get the configuration object
 import { config } from "@fortawesome/fontawesome-svg-core";
+import { Providers } from "../providers";
 
 // Prevent Font Awesome from adding its CSS since we did it manually above
 config.autoAddCss = false;
