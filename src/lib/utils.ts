@@ -74,7 +74,7 @@ export const getCategoryHeading = (id: string) => {
     : id.charAt(0).toUpperCase() + id.slice(1);
 };
 
-export const fetchCredits = async (
+export const getCredits = async (
   url: string,
   id: string,
   role: "cast" | "crew"
@@ -85,7 +85,7 @@ export const fetchCredits = async (
   return role === "cast" ? credits.cast : credits.crew;
 };
 
-export const fetchRelatedMedia = async (
+export const getRelatedMedia = async (
   endpoint: string,
   url: string,
   id: string
@@ -96,7 +96,7 @@ export const fetchRelatedMedia = async (
   return results;
 };
 
-export const generateMediaCategorySliderSettings = (mediaLength: number) => {
+export const getMediaCategorySliderSettings = (mediaLength: number) => {
   const settings = {
     infinite: mediaLength <= 4 ? false : true,
     slidesToShow: 4, // Show 4 slides at a time
