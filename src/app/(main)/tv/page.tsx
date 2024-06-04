@@ -21,14 +21,12 @@ const TVShowsPageDataFetch = async () => {
   )) as TMediaResponse<TTVShow>;
 
   return (
-    <>
       <TVShowsPage
         popularTVShows={popularTVShows}
         trendingDailyTVShows={trendingDailyTVShows}
         topRatedTVShows={topRatedTVShows}
         upcomingTVShows={upcomingTVShows}
       />
-    </>
   );
 };
 
