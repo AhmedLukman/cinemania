@@ -6,6 +6,7 @@ import PaginationScrollUI from "@/components/ui/PaginationScrollUI";
 import useFetchMediaCategory from "@/hooks/useFetchMediaCategory";
 import { MoviesUrl } from "@/lib/constants";
 import { TMovie } from "@/lib/types";
+import { CircularProgress } from "@nextui-org/react";
 import { notFound } from "next/navigation";
 import React, { useState } from "react";
 
@@ -28,7 +29,7 @@ const MovieCategoryPage = ({ params: { id } }: { params: { id: string } }) => {
   if (!url) notFound();
 
   const [media, setMedia] = useState<TMovie[]>([]);
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalPages, setTotalPages] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
 
   useFetchMediaCategory({
@@ -48,15 +49,22 @@ const MovieCategoryPage = ({ params: { id } }: { params: { id: string } }) => {
         value={value}
         type="Movies"
       />
-      <MediaGrid path="movie" media={media} />
-      <div className="flex mt-10 justify-center items-center">
-        {!isLoading && (
-          <PaginationScrollUI
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            totalPages={totalPages}
+      {isLoading && (
+        <div className="h-[65svh] flex justify-center items-center">
+          <CircularProgress
+            color="secondary"
+            size="lg"
+            aria-label="Loading..."
           />
-        )}
+        </div>
+      )}
+      {!isLoading && <MediaGrid path="movie" media={media} />}
+      <div className="flex mt-10 justify-center items-center">
+        <PaginationScrollUI
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalPages={totalPages}
+        />
       </div>
     </div>
   );
