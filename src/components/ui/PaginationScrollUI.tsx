@@ -22,13 +22,12 @@ const PaginationScrollUI = ({
       />
       <Pagination
         classNames={{
-          wrapper: "gap-0 overflow-visible h-8 rounded border border-divider",
-          item: "w-8 h-8 text-small mx-1",
+          wrapper: 'gap-x-2',
           cursor:
-            "bg-gradient-to-b shadow-lg from-default-500 to-default-800 text-white font-bold",
+            "bg-gradient-to-b from-default-500 to-default-800 text-white font-bold",
         }}
         page={currentPage}
-        onChange={(newPage) => setCurrentPage(newPage)}
+        onChange={setCurrentPage}
         total={Math.min(totalPages, 500)}
       />
     </>
