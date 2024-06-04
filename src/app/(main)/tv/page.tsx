@@ -4,6 +4,8 @@ import { TVShowsUrl } from "@/lib/constants";
 import { TMediaResponse, TTVShow } from "@/lib/types";
 import TVShowsPage from "@/components/page/TVShowsPage";
 
+export const revalidate = 3600 // revalidate at most every hour
+
 const TVShowsPageDataFetch = async () => {
   const { results: popularTVShows } = (await getMedia(
     TVShowsUrl.Popular + "?language=en-US&page=1"
