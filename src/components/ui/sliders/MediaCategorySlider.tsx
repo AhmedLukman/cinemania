@@ -2,7 +2,7 @@
 
 import React, { ReactNode } from "react";
 import Slider from "react-slick";
-import { generateMediaCategorySliderSettings } from "@/lib/utils";
+import { getMediaCategorySliderSettings } from "@/lib/utils";
 
 const MediaCategorySlider = ({
   mediaLength,
@@ -13,7 +13,7 @@ const MediaCategorySlider = ({
 }) => {
   return (
     <div className="slider-container md:px-10">
-      <Slider {...generateMediaCategorySliderSettings(mediaLength)}>
+      <Slider {...getMediaCategorySliderSettings(mediaLength)}>
         {children}
       </Slider>
     </div>
