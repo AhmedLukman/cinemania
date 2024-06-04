@@ -4,7 +4,7 @@ export const MEDIA_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_AUTH}`,
+    Authorization: `Bearer ${process.env.TMDB_AUTH}`,
   },
 };
 
