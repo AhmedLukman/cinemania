@@ -8,7 +8,7 @@ import { TMediaCategory } from "@/lib/types";
 const MediaCard = ({
   media,
   path,
-  element = "h4"
+  element = "h4",
 }: {
   media: TMediaCategory;
   path: string;
@@ -37,10 +37,11 @@ const MediaCard = ({
   return (
     <div className="px-2 md:px-4">
       <Card
+        isPressable
         as={Link}
         href={path}
         radius="lg"
-        className="border-none cursor-pointer relative group h-72 md:h-[430px] shadow-sm shadow-gray-500"
+        className="border-none relative group h-72 md:h-[430px] shadow-sm shadow-gray-500"
       >
         {"episode_number" in media && media.episode_number && (
           <span className="absolute bg-gradient-to-b from-black/40 via-black to-black/40 z-50 text-white py-3 px-5 text-center rounded-tl-lg rounded-tr-none rounded-br-xl">
@@ -51,25 +52,23 @@ const MediaCard = ({
           unoptimized
           placeholder={dataUrl as PlaceholderValue}
           alt={"imageAlt"}
-          className="object-cover md:group-hover:scale-110 transition duration-200"
+          className="object-cover md:group-hover:scale-110 transition duration-300"
           fill
           src={
             imagePath ? getImageUrl(imagePath) : "/assets/images/avatar.jpeg"
           }
         />
-        {/* Hover overlay */}
-        <div className="w-full h-full bg-black opacity-0 active:bg-black/50 md:group-hover:opacity-75 transition duration-200 z-20"></div>
         <div
           className={cn(
-            "absolute  flex-col bottom-2 w-full md:group-hover:bottom-[10.5rem] z-30 transition-hover duration-200 flex items-center justify-center",
-            { "bg-black/80 py-2 px-4": isPerson }
+            "absolute  flex-col bottom-2 w-full md:group-hover:bottom-[10.5rem] z-30 transition-hover duration-300 flex items-center justify-center",
+            { "bg-black/90 py-2 px-4": isPerson }
           )}
         >
           <Element
             className={cn(
-              "text-center mx-6 py-2 px-4 bg-black/80  rounded-lg md:group-hover:border max-w-sm text-white text-lg",
+              "text-center mx-6 py-2 px-4 bg-black/90  rounded-lg max-w-sm text-white text-lg",
               {
-                "md:group-hover:border-none !p-0 bg-transparent": isPerson,
+                "!p-0 bg-transparent": isPerson,
               }
             )}
           >
