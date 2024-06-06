@@ -8,10 +8,14 @@ import { TMediaCategory } from "@/lib/types";
 const MediaCard = ({
   media,
   path,
+  element = "h4"
 }: {
   media: TMediaCategory;
   path: string;
+  element: keyof JSX.IntrinsicElements;
 }) => {
+  const Element = element;
+
   const imagePath =
     "poster_path" in media
       ? media.poster_path
@@ -61,7 +65,7 @@ const MediaCard = ({
             { "bg-black/80 py-2 px-4": isPerson }
           )}
         >
-          <h4
+          <Element
             className={cn(
               "text-center mx-6 py-2 px-4 bg-black/80  rounded-lg md:group-hover:border max-w-sm text-white text-lg",
               {
@@ -70,7 +74,7 @@ const MediaCard = ({
             )}
           >
             {mediaName}
-          </h4>
+          </Element>
           {(isCast || isCrew) && (
             <p className="text-gray-500 text-center text-sm">
               {isCast && media.character}
