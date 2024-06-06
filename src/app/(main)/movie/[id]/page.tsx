@@ -11,6 +11,23 @@ import { getMedia } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import React from "react";
 
+export const generateMetadata = async ({
+  params: { id },
+}: {
+  params: { id: string };
+}) => {
+  const movie = (await getMedia(
+    MoviesUrl.Origin + id.toString() + "?language=en-US"
+  )) as TMovieDetailsResponse;
+
+  if (!movie?.overview) notFound();
+
+  return {
+    title: "CM | " + movie.title,
+    description: movie.overview,
+  };
+};
+
 const MovieDetailsFetchPage = async ({
   params: { id },
 }: {
@@ -33,10 +50,15 @@ const MovieDetailsFetchPage = async ({
   const { results: recommendedMovies } = (await getMedia(
     MoviesUrl.Origin + id + "/recommendations?language=en-US&page=1"
   )) as TMediaResponse<TMovie>;
-  
-  const collection = movie.belongs_to_collection && (await getMedia(
-    MediaUrl +"collection/" + movie.belongs_to_collection.id + "?language=en-US"
-  )) as Collection;
+
+  const collection =
+    movie.belongs_to_collection &&
+    ((await getMedia(
+      MediaUrl +
+        "collection/" +
+        movie.belongs_to_collection.id +
+        "?language=en-US"
+    )) as Collection);
 
   return (
     <MovieDetailsPage

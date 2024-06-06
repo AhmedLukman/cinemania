@@ -1,9 +1,30 @@
 import MediaGrid from "@/components/ui/MediaGrid";
 import { MoviesUrl } from "@/lib/constants";
-import { TMediaResponse, TMovie } from "@/lib/types";
+import { TMediaResponse, TMovie, TMovieDetailsResponse } from "@/lib/types";
 import { getMedia } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import React from "react";
+
+export const generateMetadata = async ({
+  params: { id, suggestion },
+}: {
+  params: { id: string; suggestion: string };
+}) => {
+  const movie = (await getMedia(
+    MoviesUrl.Origin + id.toString() + "?language=en-US"
+  )) as TMovieDetailsResponse;
+
+  if (!movie?.overview) notFound();
+
+  return {
+    title: `CM | ${
+      suggestion === "recommendations" ? "Recommended" : "Similar"
+    } movies to ${movie.title}`,
+    description: `Check out these ${
+      suggestion === "recommendations" ? "recommended" : "similar"
+    } movies to ${movie.title}`,
+  };
+};
 
 const SuggestionMoviePage = async ({
   params: { id, suggestion },
