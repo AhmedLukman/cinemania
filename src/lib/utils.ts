@@ -12,6 +12,7 @@ import {
   TAllCategory,
   TCast,
   TCrew,
+  TMediaCategory,
   TMediaCreditsResponse,
   TMediaResponse,
   TMovie,
@@ -155,11 +156,10 @@ export const getPath = (type: CategoryType, id: number) => {
 
 export const getMediaTitle = (
   media:
-    | TTVShow
-    | TMovie
     | TMovieDetailsResponse
     | TTVShowDetailsResponse
     | TSingleTVSeasonResponse
+    | TMediaCategory
 ) =>
   "original_title" in media
     ? media.original_title
