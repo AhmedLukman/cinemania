@@ -5,14 +5,14 @@ import SelectUI from "./SelectUI";
 const CategoryPageHeading = ({
   id,
   isLoading,
-  setValue,
-  value,
+  setFrequency,
+  frequency,
   type,
 }: {
   id: string;
   isLoading: boolean;
-  setValue: React.Dispatch<any>;
-  value: any;
+  setFrequency: React.Dispatch<any>;
+  frequency: any;
   type: string;
 }) => {
   return (
@@ -21,7 +21,7 @@ const CategoryPageHeading = ({
         {getCategoryHeading(id)} {type}
       </h1>
       {id === "trending" && (
-        <SelectUI isLoading={isLoading} setValue={setValue} value={value} />
+        <SelectUI isLoading={isLoading} setFrequency={setFrequency} frequency={frequency} />
       )}
     </div>
   );
