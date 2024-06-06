@@ -6,7 +6,7 @@ import React, { PropsWithChildren } from "react";
 export const metadata: Metadata = {
   title: "Cinemania",
   description:
-    "Discover and interact in a world of movies at your fingertips! Dive into synopsis, rating and more in cinemania today.",
+    "Discover and interact in a world of movies and TV shows at your fingertips! Dive into synopsis, rating and more in cinemania today!",
 };
 
 

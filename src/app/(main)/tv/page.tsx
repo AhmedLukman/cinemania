@@ -3,8 +3,13 @@ import { getMedia } from "@/lib/utils";
 import { TVShowsUrl } from "@/lib/constants";
 import { TMediaResponse, TTVShow } from "@/lib/types";
 import TVShowsPage from "@/components/page/TVShowsPage";
+import { Metadata } from "next";
 
 export const revalidate = 3600 // revalidate at most every hour
+
+export const metadata: Metadata = {
+  title: "Cinemania | TV Shows",
+};
 
 const TVShowsPageDataFetch = async () => {
   const { results: popularTVShows } = (await getMedia(

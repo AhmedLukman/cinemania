@@ -2,9 +2,14 @@ import MoviesPage from "@/components/page/MoviesPage";
 import { MoviesUrl } from "@/lib/constants";
 import { TMediaResponse, TMovie } from "@/lib/types";
 import { getMedia } from "@/lib/utils";
+import { Metadata } from "next";
 import React from "react";
 
-export const revalidate = 3600 // revalidate at most every hour
+export const revalidate = 3600; // revalidate at most every hour
+
+export const metadata: Metadata = {
+  title: "Cinemania | Movies",
+};
 
 const MoviesPageDataFetch = async () => {
   const { results: popularMovies } = (await getMedia(
