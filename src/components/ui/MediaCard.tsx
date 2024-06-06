@@ -12,7 +12,7 @@ const MediaCard = ({
 }: {
   media: TMediaCategory;
   path: string;
-  element: keyof JSX.IntrinsicElements;
+  element?: keyof JSX.IntrinsicElements;
 }) => {
   const Element = element;
 
