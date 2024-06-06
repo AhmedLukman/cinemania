@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Card, Link, cn } from "@nextui-org/react";
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
-import { dataUrl, getImageUrl } from "@/lib/utils";
+import { dataUrl, getImageUrl, getMediaTitle } from "@/lib/utils";
 import { TMediaCategory } from "@/lib/types";
 
 const MediaCard = ({
@@ -28,12 +28,6 @@ const MediaCard = ({
   const isCast = "character" in media;
   const isPerson = isCast || isCrew;
 
-  const mediaName =
-    "original_name" in media
-      ? media.original_name
-      : "original_title" in media
-      ? media.original_title
-      : media.name;
   return (
     <div className="px-2 md:px-4">
       <Card
@@ -72,7 +66,7 @@ const MediaCard = ({
               }
             )}
           >
-            {mediaName}
+            {getMediaTitle(media)}
           </Element>
           {(isCast || isCrew) && (
             <p className="text-gray-500 text-center text-sm">
