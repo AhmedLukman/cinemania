@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 import { Select, SelectItem } from "@nextui-org/react";
-import { FREQUENCY } from '@/lib/constants';
+import { FREQUENCY } from "@/lib/constants";
 
 const SelectUI = ({
   isLoading,
-  value,
-  setValue,
+  frequency,
+  setFrequency,
 }: {
   isLoading: boolean;
-  value: Set<string>;
-  setValue: any;
+  frequency: Set<string>;
+  setFrequency: React.Dispatch<React.SetStateAction<Set<string>>>;
 }) => {
   return (
     <Select
@@ -17,9 +17,9 @@ const SelectUI = ({
       aria-label="Select frequency"
       variant="bordered"
       className="text-white w-32 mr-2 md:mr-4"
-      onSelectionChange={setValue}
+      onSelectionChange={setFrequency as any}
       disallowEmptySelection
-      selectedKeys={value}
+      selectedKeys={frequency}
       classNames={{
         value: "!text-white",
       }}
@@ -33,4 +33,4 @@ const SelectUI = ({
   );
 };
 
-export default SelectUI
+export default SelectUI;
