@@ -17,7 +17,7 @@ const MovieCategoryPage = ({
   id: string;
 }) => {
   const [frequency, setFrequency] = useState(new Set(["daily"]));
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState(results);
   const [totalPages, setTotalPages] = useState(total_pages);
   const [currentPage, setCurrentPage] = useState(page);
@@ -36,8 +36,6 @@ const MovieCategoryPage = ({
   useEffect(() => {
     if (currentPage === page) {
       setMovies(results);
-      setIsLoading(false);
-      // setTotalPages(total_pages);
       return;
     }
     const fetchMoviesCategoryByPage = async () => {
@@ -55,7 +53,6 @@ const MovieCategoryPage = ({
     if (frequency.has("daily")) {
       setMovies(results);
       setTotalPages(total_pages);
-      setIsLoading(false);
       return;
     }
     const fetchMoviesCategoryByFrequency = async () => {

@@ -18,7 +18,7 @@ const TVCategoryPage = ({
   id: string;
 }) => {
   const [frequency, setFrequency] = useState(new Set(["daily"]));
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [tvShows, setTVShows] = useState(results);
   const [totalPages, setTotalPages] = useState(total_pages);
   const [currentPage, setCurrentPage] = useState(page);
@@ -36,13 +36,11 @@ const TVCategoryPage = ({
 
   useEffect(() => {
     if (currentPage === page) {
-      setIsLoading(false)
       setTVShows(results);
-      // setTotalPages(total_pages);
       return;
     }
     const fetchTVShowsCategoryByPage = async () => {
-      // setIsLoading(true);
+      setIsLoading(true);
       const response = (await getMedia(
         `${url}?language=en-US&page=${currentPage}`
       )) as TMediaResponse<TTVShow>;
@@ -56,11 +54,10 @@ const TVCategoryPage = ({
     if (frequency.has("daily")) {
       setTVShows(results);
       setTotalPages(total_pages);
-      setIsLoading(false);
       return;
     }
     const fetchTVShowsCategoryByFrequency = async () => {
-      // setIsLoading(true);
+      setIsLoading(true);
       const response = (await getMedia(
         `${url}?language=en-US&page=${currentPage}`
       )) as TMediaResponse<TTVShow>;
