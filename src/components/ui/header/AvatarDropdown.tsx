@@ -8,7 +8,7 @@ import {
   DropdownSection,
 } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
+import { faSignOut } from "@fortawesome/free-solid-svg-icons";
 import { signOut } from "next-auth/react";
 
 const AvatarDropdown = ({
@@ -49,7 +49,7 @@ const AvatarDropdown = ({
         </DropdownSection>
         <DropdownSection aria-label="logout">
           <DropdownItem
-            endContent={<FontAwesomeIcon icon={faPowerOff} />}
+            endContent={<FontAwesomeIcon icon={faSignOut} />}
             key="logout"
             color="danger"
             onPress={() => signOut()}
