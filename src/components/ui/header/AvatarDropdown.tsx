@@ -55,7 +55,7 @@ const AvatarDropdown = ({
             onPress={() => signOut()}
             className="text-red-500"
           >
-            Log Out
+            Sign Out
           </DropdownItem>
         </DropdownSection>
       </DropdownMenu>
