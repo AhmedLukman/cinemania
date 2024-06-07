@@ -1,5 +1,6 @@
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 import "slick-carousel/slick/slick.css";
@@ -52,7 +53,10 @@ export default function RootLayout({
         <link rel="manifest" href="/assets/icons/site.webmanifest" />
       </head>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Toaster />
+          {children}
+        </Providers>
         <SpeedInsights />
       </body>
     </html>
