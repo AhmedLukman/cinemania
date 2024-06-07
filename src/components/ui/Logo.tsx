@@ -3,7 +3,6 @@ import Image from "next/image";
 const Logo = () => {
   return (
     <Image
-      unoptimized
       src={"/assets/icons/cinemania-logo.png"}
       alt="Cinemania logo"
       priority
@@ -11,6 +10,6 @@ const Logo = () => {
       height={27}
     />
   );
-};
+}
 
-export default Logo;
+export default Logo
