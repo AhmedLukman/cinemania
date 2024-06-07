@@ -21,6 +21,8 @@ import {
   TTVShow,
   TTVShowDetailsResponse,
 } from "./types";
+import { cache } from "react";
+import { auth } from "@/auth";
 
 // PLACEHOLDER LOADER
 const shimmer = (w: number, h: number) => `
@@ -194,3 +196,6 @@ export const getGender = (number: number) =>
     : number === 2
     ? "Male"
     : "Not known";
+
+export const cachedAuth = cache(auth); // Deduplicates request. Use on pages not server actions
+
