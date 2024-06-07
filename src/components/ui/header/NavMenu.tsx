@@ -22,7 +22,7 @@ const NavMenu = () => {
       ))}
       <Divider />
       <NavbarMenuItem>
-        <Link color="foreground" size="lg" href="/sign-up">Sign Up</Link>
+        <Link color="foreground" size="lg" href="/sign-up">Sign In</Link>
       </NavbarMenuItem>
     </NavbarMenu>
   );

@@ -39,7 +39,7 @@ const NavEnd = () => {
           variant="flat"
           className="text-white hidden md:flex items-center justify-center"
         >
-          Sign Up
+          Sign In
         </Button>
       )}
       {isLoading && <Skeleton className="rounded-full w-[40px] h-[40px]" />}
