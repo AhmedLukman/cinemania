@@ -1,9 +1,18 @@
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Input, Link, NavbarItem } from "@nextui-org/react";
+import {
+  Button,
+  Input,
+  Skeleton,
+} from "@nextui-org/react";
+import { signIn, useSession } from "next-auth/react";
 import React from "react";
+import AvatarDropdown from "./AvatarDropdown";
 
 const NavEnd = () => {
+  const { data, status } = useSession();
+  const user = data?.user;
+  const isLoading = status === "loading";
   return (
     <>
       <Input
@@ -24,14 +33,23 @@ const NavEnd = () => {
           />
         }
       />
-      <Button
-        as={Link}
-        href="#"
-        variant="flat"
-        className="text-white hidden md:flex items-center justify-center"
-      >
-        Sign Up
-      </Button>
+      {!user && !isLoading && (
+        <Button
+          onPress={() => signIn()}
+          variant="flat"
+          className="text-white hidden md:flex items-center justify-center"
+        >
+          Sign Up
+        </Button>
+      )}
+      {isLoading && <Skeleton className="rounded-full w-[40px] h-[40px]" />}
+      {user && (
+        <AvatarDropdown
+          name={user.name || ""}
+          email={user.email || ""}
+          image={user.image || ""}
+        />
+      )}
     </>
   );
 };
