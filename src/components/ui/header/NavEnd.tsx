@@ -1,4 +1,4 @@
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faSignIn } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Button,
@@ -36,6 +36,7 @@ const NavEnd = () => {
       {!user && !isLoading && (
         <Button
           onPress={() => signIn()}
+          endContent={<FontAwesomeIcon icon={faSignIn} />}
           variant="flat"
           className="text-white hidden md:flex items-center justify-center"
         >
