@@ -13,6 +13,8 @@ import React, { useState } from "react";
 import VideoModal from "./VideoModal";
 import { usePathname } from "next/navigation";
 import ImageModal from "./ImageModal";
+import { toast } from 'sonner'
+import { useSession } from "next-auth/react";
 
 const MediaActions = ({
   mediaId,
@@ -24,17 +26,33 @@ const MediaActions = ({
   homepageURL: string;
 }) => {
   const [isIconClicked, setIsIconClicked] = useState(false);
+
+  const { data, status, update } = useSession();
+  const user = data?.user;
+  const isLoading = status === "loading";
+
   const {
     isOpen: isVideoOpen,
     onOpen: onVideoOpen,
     onOpenChange: onVideoOpenChange,
   } = useDisclosure();
+
   const {
     isOpen: isImageOpen,
     onOpen: onImageOpen,
     onOpenChange: onImageOpenChange,
   } = useDisclosure();
+
   const pathname = usePathname();
+
+  const handleFavClick = () => {
+    if (!user) {
+      toast.info("Sign in in order to favorite films");
+      return
+    }
+    setIsIconClicked((prevState) => !prevState);
+  };
+
   return (
     <div className="mt-10">
       <VideoModal
@@ -81,16 +99,19 @@ const MediaActions = ({
             More details
           </Button>
         )}
-        <div
-          onClick={() => setIsIconClicked((prevState) => !prevState)}
-          className="flex md:gap-2 cursor-pointer flex-col md:flex-row items-center md:ml-2"
+        <Button
+          variant="light"
+          onPress={handleFavClick}
+          className="text-white"
+          startContent={
+            <FontAwesomeIcon
+              icon={isIconClicked ? faFilledHeart : faHeart}
+              size="xl"
+            />
+          }
         >
-          <FontAwesomeIcon
-            icon={isIconClicked ? faFilledHeart : faHeart}
-            size="xl"
-          />
-          <span>168</span>
-        </div>
+          120
+        </Button>
         {homepageURL && (
           <Link
             className="text-white/60"
