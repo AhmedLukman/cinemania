@@ -12,7 +12,7 @@ const MediaCategorySlider = ({
   children: ReactNode;
 }) => {
   return (
-    <div className="slider-container md:px-10">
+    <div className="slider-container md:px-10 cursor-grab">
       <Slider {...getMediaCategorySliderSettings(mediaLength)}>
         {children}
       </Slider>
