@@ -104,7 +104,6 @@ export const getMediaCategorySliderSettings = (mediaLength: number) => {
     infinite: mediaLength <= 4 ? false : true,
     slidesToShow: 4, // Show 4 slides at a time
     slidesToScroll: mediaLength < 4 ? 1 : 4,
-    draggable: false,
     lazyLoad: "progressive" as LazyLoadTypes,
     arrows: mediaLength > 4 ? true : false,
     autoplay: true,
