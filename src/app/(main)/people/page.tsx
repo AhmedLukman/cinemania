@@ -9,7 +9,7 @@ export const revalidate = 3600; // revalidate at most every hour
 
 export const metadata: Metadata = {
   title: "Cinemania | People",
-  description: "Discover popular and trending people in the movie industry."
+  description: "Discover popular and trending people in the movie industry.",
 };
 
 const PeopleFetchPage = async () => {
@@ -21,8 +21,10 @@ const PeopleFetchPage = async () => {
     PeopleUrl.Trending + "/day?language=en-US"
   )) as TMediaResponse<TPeople>;
 
+  const latestCreated = (await getMedia(PeopleUrl.Latest)) as TPeople;
+
   return (
-    <PeoplePage popularPeople={popularPeople} trendingPeople={trendingPeople} />
+    <PeoplePage popularPeople={popularPeople} trendingPeople={trendingPeople} latestCreated={latestCreated} />
   );
 };
 

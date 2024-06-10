@@ -7,9 +7,11 @@ import MediaCard from "../ui/MediaCard";
 const PeoplePage = ({
   popularPeople,
   trendingPeople,
+  latestCreated
 }: {
   popularPeople: TPeople[];
   trendingPeople: TPeople[];
+  latestCreated: TPeople;
 }) => {
   return (
     <div className="pt-10">
@@ -44,6 +46,20 @@ const PeoplePage = ({
           ))}
         </MediaCategorySlider>
       </MediaCategory>
+
+      <MediaCategory
+        media={[latestCreated]}
+        heading="Latest Created"
+      >
+        <MediaCategorySlider mediaLength={1}>
+          <MediaCard
+            key={latestCreated.id}
+            media={latestCreated}
+            path={`/people/${latestCreated.id}`}
+          />
+        </MediaCategorySlider>
+      </MediaCategory>
+
     </div>
   );
 };

@@ -22,6 +22,7 @@ export enum MoviesUrl {
 export enum PeopleUrl {
   Trending = "https://api.themoviedb.org/3/trending/person",
   Popular = "https://api.themoviedb.org/3/person/popular",
+  Latest = "https://api.themoviedb.org/3/person/latest",
 }
 
 export enum TVShowsUrl {
