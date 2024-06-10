@@ -26,7 +26,6 @@ const MediaCard = ({
       : null;
   const isCrew = "job" in media;
   const isCast = "character" in media;
-  const isPerson = isCast || isCrew;
 
   return (
     <div className="px-2 md:px-4">
@@ -54,16 +53,12 @@ const MediaCard = ({
         />
         <div
           className={cn(
-            "absolute  flex-col bottom-2 w-full md:group-hover:bottom-[10.5rem] z-30 transition-hover duration-300 flex items-center justify-center",
-            { "bg-black/90 py-2 px-4": isPerson }
+            "absolute  flex-col bottom-0 w-full p-1 min-h-10 bg-black/90 md:group-hover:bg-black/75 md:group-hover:min-h-full z-30 transition-all duration-300 flex items- justify-center"
           )}
         >
           <Element
             className={cn(
-              "text-center mx-6 py-2 px-4 bg-black/90  rounded-lg max-w-sm text-white text-lg",
-              {
-                "!p-0 bg-transparent": isPerson,
-              }
+              "text-center mx-6 rounded-lg max-w-sm text-white text-lg"
             )}
           >
             {getMediaTitle(media)}
