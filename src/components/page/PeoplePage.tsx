@@ -7,7 +7,7 @@ import MediaCard from "../ui/MediaCard";
 const PeoplePage = ({
   popularPeople,
   trendingPeople,
-  latestCreated
+  latestCreated,
 }: {
   popularPeople: TPeople[];
   trendingPeople: TPeople[];
@@ -23,6 +23,7 @@ const PeoplePage = ({
         <MediaCategorySlider mediaLength={popularPeople.length}>
           {popularPeople.map((popularPerson) => (
             <MediaCard
+              className="card-padding"
               key={popularPerson.id}
               media={popularPerson}
               path={`/people/${popularPerson.id}`}
@@ -39,6 +40,7 @@ const PeoplePage = ({
         <MediaCategorySlider mediaLength={trendingPeople.length}>
           {trendingPeople.map((trendingPerson) => (
             <MediaCard
+              className="card-padding"
               key={trendingPerson.id}
               media={trendingPerson}
               path={`/people/${trendingPerson.id}`}
@@ -47,19 +49,16 @@ const PeoplePage = ({
         </MediaCategorySlider>
       </MediaCategory>
 
-      <MediaCategory
-        media={[latestCreated]}
-        heading="Latest Created"
-      >
+      <MediaCategory media={[latestCreated]} heading="Latest Created">
         <MediaCategorySlider mediaLength={1}>
           <MediaCard
+            className="card-padding"
             key={latestCreated.id}
             media={latestCreated}
             path={`/people/${latestCreated.id}`}
           />
         </MediaCategorySlider>
       </MediaCategory>
-
     </div>
   );
 };

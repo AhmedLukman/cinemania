@@ -9,10 +9,12 @@ const MediaCard = ({
   media,
   path,
   element = "h4",
+  className
 }: {
   media: TMediaCategory;
   path: string;
   element?: keyof JSX.IntrinsicElements;
+  className?: string
 }) => {
   const Element = element;
 
@@ -28,7 +30,7 @@ const MediaCard = ({
   const isCast = "character" in media;
 
   return (
-    <div className="px-2 md:px-4">
+    <div className={className}>
       <Card
         isPressable
         as={Link}

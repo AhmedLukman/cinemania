@@ -25,6 +25,7 @@ const MoviesPage = ({
         <MediaCategorySlider mediaLength={nowPlayingMovies.length}>
           {nowPlayingMovies.map((nowPlayingMovie) => (
             <MediaCard
+              className="card-padding"
               key={nowPlayingMovie.id}
               media={nowPlayingMovie}
               path={`/movie/${nowPlayingMovie.id}`}
@@ -41,6 +42,7 @@ const MoviesPage = ({
         <MediaCategorySlider mediaLength={trendingDailyMovies.length}>
           {trendingDailyMovies.map((trendingDailyMovie) => (
             <MediaCard
+              className="card-padding"
               key={trendingDailyMovie.id}
               media={trendingDailyMovie}
               path={`/movie/${trendingDailyMovie.id}`}
@@ -57,6 +59,7 @@ const MoviesPage = ({
         <MediaCategorySlider mediaLength={topRatedMovies.length}>
           {topRatedMovies.map((topRatedMovie) => (
             <MediaCard
+              className="card-padding"
               key={topRatedMovie.id}
               media={topRatedMovie}
               path={`/movie/${topRatedMovie.id}`}
@@ -73,6 +76,7 @@ const MoviesPage = ({
         <MediaCategorySlider mediaLength={upcomingMovies.length}>
           {upcomingMovies.map((upcomingMovie) => (
             <MediaCard
+              className="card-padding"
               key={upcomingMovie.id}
               media={upcomingMovie}
               path={`/movie/${upcomingMovie.id}`}

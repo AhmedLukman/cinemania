@@ -24,6 +24,7 @@ const TVShowsPage = ({
         <MediaCategorySlider mediaLength={trendingDailyTVShows.length}>
           {trendingDailyTVShows.map((trendingDailyTVShow) => (
             <MediaCard
+              className="card-padding"
               key={trendingDailyTVShow.id}
               media={trendingDailyTVShow}
               path={`/tv/${trendingDailyTVShow.id}`}
@@ -40,6 +41,7 @@ const TVShowsPage = ({
         <MediaCategorySlider mediaLength={topRatedTVShows.length}>
           {topRatedTVShows.map((topRatedTVShow) => (
             <MediaCard
+              className="card-padding"
               key={topRatedTVShow.id}
               media={topRatedTVShow}
               path={`/tv/${topRatedTVShow.id}`}
@@ -56,6 +58,7 @@ const TVShowsPage = ({
         <MediaCategorySlider mediaLength={upcomingTVShows.length}>
           {upcomingTVShows.map((upcomingTVShow) => (
             <MediaCard
+              className="card-padding"
               key={upcomingTVShow.id}
               media={upcomingTVShow}
               path={`/tv/${upcomingTVShow.id}`}

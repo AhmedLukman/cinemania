@@ -62,6 +62,7 @@ const TVShowDetailsPage = ({
         <MediaCategorySlider mediaLength={seasons.length}>
           {seasons.map((season) => (
             <MediaCard
+              className="card-padding"
               key={season.id}
               media={season}
               path={`/tv/${tvShow.id}/season/${season.season_number}`}
@@ -78,6 +79,7 @@ const TVShowDetailsPage = ({
         <MediaCategorySlider mediaLength={cast.length}>
           {cast.map((castMember) => (
             <MediaCard
+              className="card-padding"
               key={castMember.id}
               media={castMember}
               path={`/people/${castMember.id}`}
@@ -94,6 +96,7 @@ const TVShowDetailsPage = ({
         <MediaCategorySlider mediaLength={crew.length}>
           {crew.map((crewMember) => (
             <MediaCard
+              className="card-padding"
               key={crewMember.id}
               media={crewMember}
               path={`/people/${crewMember.id}`}
@@ -110,6 +113,7 @@ const TVShowDetailsPage = ({
         <MediaCategorySlider mediaLength={recommendedTVShows.length}>
           {recommendedTVShows.map((recommendedTVShow) => (
             <MediaCard
+              className="card-padding"
               key={recommendedTVShow.id}
               media={recommendedTVShow}
               path={`/tv/${recommendedTVShow.id}`}
@@ -126,6 +130,7 @@ const TVShowDetailsPage = ({
         <MediaCategorySlider mediaLength={similarTVShows.length}>
           {similarTVShows.map((similarTVShow) => (
             <MediaCard
+              className="card-padding"
               key={similarTVShow.id}
               media={similarTVShow}
               path={`/tv/${similarTVShow.id}`}

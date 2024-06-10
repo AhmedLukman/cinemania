@@ -7,6 +7,7 @@ const MediaGrid = ({ media, path }: { media: TMediaGrid; path: string }) => {
     <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8">
       {media?.map((media) => (
         <MediaCard
+          className="card-padding"
           element="h2"
           key={media.id}
           media={media}

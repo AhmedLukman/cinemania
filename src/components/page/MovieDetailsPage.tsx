@@ -58,6 +58,7 @@ const MovieDetailsPage = ({
               <MediaCategorySlider mediaLength={collection.parts.length}>
                 {collection.parts.map((movie) => (
                   <MediaCard
+                    className="card-padding"
                     key={movie.id}
                     media={movie}
                     path={`/movie/${movie.id}`}
@@ -77,6 +78,7 @@ const MovieDetailsPage = ({
         <MediaCategorySlider mediaLength={cast.length}>
           {cast.map((castMember) => (
             <MediaCard
+              className="card-padding"
               key={castMember.id}
               media={castMember}
               path={`/people/${castMember.id}`}
@@ -93,6 +95,7 @@ const MovieDetailsPage = ({
         <MediaCategorySlider mediaLength={crew.length}>
           {crew.map((crewMember) => (
             <MediaCard
+              className="card-padding"
               key={crewMember.id}
               media={crewMember}
               path={`/people/${crewMember.id}`}
@@ -109,6 +112,7 @@ const MovieDetailsPage = ({
         <MediaCategorySlider mediaLength={recommendedMovies.length}>
           {recommendedMovies.map((recommendedMovie) => (
             <MediaCard
+              className="card-padding"
               key={recommendedMovie.id}
               media={recommendedMovie}
               path={`/movie/${recommendedMovie.id}`}
@@ -125,6 +129,7 @@ const MovieDetailsPage = ({
         <MediaCategorySlider mediaLength={similarMovies.length}>
           {similarMovies.map((similarMovie) => (
             <MediaCard
+              className="card-padding"
               key={similarMovie.id}
               media={similarMovie}
               path={`/movie/${similarMovie.id}`}
