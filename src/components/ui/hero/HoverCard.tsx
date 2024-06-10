@@ -92,7 +92,7 @@ export const HoverCard = ({
               placeholder={dataUrl as PlaceholderValue}
               alt="image"
               className={cn(
-                "h-full w-full object-cover scale-[1.15]",
+                "h-full w-full object-cover scale-[1.23]",
                 imageClassName
               )}
               fill
