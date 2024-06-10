@@ -145,73 +145,95 @@ const PeopleDetailsPage = ({
           </p>
         ))}
 
-        <Divider className="mt-5 bg-neutral-600" />
+        {(moviesCast.length > 0 || moviesCrew.length > 0) && (
+          <>
+            <Divider className="mt-5 bg-neutral-600" />
+            <h2 className="text-2xl md:text-3xl font-bold my-5 font-serif">
+              Movie credits
+            </h2>
+          </>
+        )}
 
-        <h2 className="text-2xl md:text-3xl font-bold my-5 font-serif">
-          Movie credits
-        </h2>
+        {moviesCast.length > 0 && (
+          <>
+            <h3 className="text-xl md:text-2xl font-serif mb-5">Cast</h3>
+            <ScrollShadow
+              hideScrollBar
+              className=" grid grid-cols-2 xl:grid-cols-3 gap-5 h-[30rem]"
+            >
+              {moviesCast.map((movieCast) => (
+                <MediaCard
+                  key={movieCast.id}
+                  media={movieCast}
+                  path={`/movie/${movieCast.id}`}
+                />
+              ))}
+            </ScrollShadow>
+          </>
+        )}
 
-        <h3 className="text-xl md:text-2xl font-serif mb-5">Cast</h3>
-        <ScrollShadow
-          hideScrollBar
-          className=" grid grid-cols-2 xl:grid-cols-3 gap-5 h-[30rem]"
-        >
-          {moviesCast.map((movieCast) => (
-            <MediaCard
-              key={movieCast.id}
-              media={movieCast}
-              path={`/movie/${movieCast.id}`}
-            />
-          ))}
-        </ScrollShadow>
+        {moviesCrew.length > 0 && (
+          <>
+            <h3 className="text-xl md:text-2xl font-serif my-5">Crew</h3>
+            <ScrollShadow
+              hideScrollBar
+              className=" grid grid-cols-2 xl:grid-cols-3 gap-5 h-[30rem]"
+            >
+              {moviesCrew.map((movieCrew) => (
+                <MediaCard
+                  key={movieCrew.id}
+                  media={movieCrew}
+                  path={`/movie/${movieCrew.id}`}
+                />
+              ))}
+            </ScrollShadow>
+          </>
+        )}
 
-        <h3 className="text-xl md:text-2xl font-serif my-5">Crew</h3>
-        <ScrollShadow
-          hideScrollBar
-          className=" grid grid-cols-2 xl:grid-cols-3 gap-5 h-[30rem]"
-        >
-          {moviesCrew.map((movieCrew) => (
-            <MediaCard
-              key={movieCrew.id}
-              media={movieCrew}
-              path={`/movie/${movieCrew.id}`}
-            />
-          ))}
-        </ScrollShadow>
+        {(tvShowsCast.length > 0 || tvShowsCrew.length > 0) && (
+          <>
+            <Divider className="mt-5 bg-neutral-600" />
+            <h2 className="text-2xl md:text-3xl font-bold my-5 font-serif">
+              TV Show credits
+            </h2>
+          </>
+        )}
 
-        <Divider className="mt-5 bg-neutral-600" />
+        {tvShowsCast.length > 0 && (
+          <>
+            <h3 className="text-xl md:text-2xl font-serif my-5">Cast</h3>
+            <ScrollShadow
+              hideScrollBar
+              className=" grid grid-cols-2 xl:grid-cols-3 gap-5 h-[30rem]"
+            >
+              {tvShowsCast.map((tvShowCast) => (
+                <MediaCard
+                  key={tvShowCast.id}
+                  media={tvShowCast}
+                  path={`/movie/${tvShowCast.id}`}
+                />
+              ))}
+            </ScrollShadow>
+          </>
+        )}
 
-        <h2 className="text-2xl md:text-3xl font-bold my-5 font-serif">
-          TV Show credits
-        </h2>
-        
-        <h3 className="text-xl md:text-2xl font-serif my-5">Cast</h3>
-        <ScrollShadow
-          hideScrollBar
-          className=" grid grid-cols-2 xl:grid-cols-3 gap-5 h-[30rem]"
-        >
-          {tvShowsCast.map((tvShowCast) => (
-            <MediaCard
-              key={tvShowCast.id}
-              media={tvShowCast}
-              path={`/movie/${tvShowCast.id}`}
-            />
-          ))}
-        </ScrollShadow>
-
-        <h3 className="text-xl md:text-2xl font-serif my-5">Crew</h3>
-        <ScrollShadow
-          hideScrollBar
-          className=" grid grid-cols-2 xl:grid-cols-3 gap-5 h-[30rem]"
-        >
-          {tvShowsCrew.map((tvShowCrew) => (
-            <MediaCard
-              key={tvShowCrew.id}
-              media={tvShowCrew}
-              path={`/movie/${tvShowCrew.id}`}
-            />
-          ))}
-        </ScrollShadow>
+        {tvShowsCrew.length > 0 && (
+          <>
+            <h3 className="text-xl md:text-2xl font-serif my-5">Crew</h3>
+            <ScrollShadow
+              hideScrollBar
+              className=" grid grid-cols-2 xl:grid-cols-3 gap-5 h-[30rem]"
+            >
+              {tvShowsCrew.map((tvShowCrew) => (
+                <MediaCard
+                  key={tvShowCrew.id}
+                  media={tvShowCrew}
+                  path={`/movie/${tvShowCrew.id}`}
+                />
+              ))}
+            </ScrollShadow>
+          </>
+        )}
       </div>
     </div>
   );
