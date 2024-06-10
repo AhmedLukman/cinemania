@@ -1,28 +1,14 @@
 import React from "react";
-import {
-  faFacebook,
-  faInstagram,
-  faXTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  Divider,
-  Image,
-  Link,
-  ScrollShadow,
-  cn,
-} from "@nextui-org/react";
+import { Divider, ScrollShadow } from "@nextui-org/react";
 import {
   TMovie,
   TPersonDetails,
   TPersonMediaCredits,
   TTVShow,
 } from "@/lib/types";
-import { getAge, getGender, getImageUrl } from "@/lib/utils";
+import { getAge, getGender } from "@/lib/utils";
 import MediaCard from "../ui/MediaCard";
+import ProfileCard from "../ui/ProfileCard";
 
 const PeopleDetailsPage = ({
   personDetails,
@@ -55,51 +41,18 @@ const PeopleDetailsPage = ({
   } = personDetails;
   return (
     <div className="flex flex-col md:flex-row gap-7 md:gap-10 md:mx-10 mt-20 mx-5 ">
-      <div className="flex justify-center basis-1/3  ">
-        <Card
-          shadow="sm"
-          className=" w-96 md:sticky md:top-16 self-start bg-white"
-        >
-          <CardBody className="overflow-visible p-0">
-            <Image
-              shadow="sm"
-              radius="lg"
-              alt={""}
-              className=" w-96 h-96 md:h-[65vh] object-cover"
-              src={getImageUrl(profile_path)}
-            />
-          </CardBody>
-          <CardFooter className="text-small justify-between">
-            <h1 className="text-xl font-bold">{name}</h1>
-            <div className="space-x-3 flex items-center">
-              <FontAwesomeIcon
-                size="lg"
-                className="hover:cursor-pointer hover:text-neutral-500"
-                icon={faXTwitter}
-              />
-              <FontAwesomeIcon
-                size="lg"
-                className="hover:cursor-pointer hover:text-neutral-500"
-                icon={faInstagram}
-              />
-              <FontAwesomeIcon
-                size="lg"
-                className="hover:cursor-pointer hover:text-neutral-500"
-                icon={faFacebook}
-              />
-              {homepage && (
-                <Link
-                  className="text-black/60 ml-2"
-                  title="Visit homepage"
-                  isExternal
-                  href={homepage}
-                  showAnchorIcon
-                />
-              )}
-            </div>
-          </CardFooter>
-        </Card>
-      </div>
+      <ProfileCard
+        links={{
+          imdb_id: "nm2858875",
+          facebook_id: "",
+          instagram_id: "sydney_sweeney",
+          twitter_id: "sydney_sweeney",
+          youtube_id: "",
+        }}
+        homepage={homepage}
+        name={name}
+        profilePath={profile_path}
+      />
       <div className=" basis-2/3 bg-white/10 p-5 rounded-lg text-white ">
         <h2 className="text-2xl md:text-3xl font-bold mb-5 font-serif">
           Personal Info
@@ -123,7 +76,7 @@ const PeopleDetailsPage = ({
         )}
         <p className="my-2">
           Also known as:{" "}
-          <span className="text-gray-300">{also_known_as.join(", ")}</span>
+          <span className="text-gray-300">{also_known_as.join(", ")}.</span>
         </p>
         <p className="my-2">
           Gender: <span className="text-gray-300">{getGender(gender)}</span>
