@@ -18,7 +18,7 @@ const CreditParagraph = ({
     typeof value === "string"
       ? value
       : typeof value === "object"
-      ? value.map((company: any) => company.name + ". ")
+      ? value.map((company: any) => company.name).join(", ") + "."
       : "";
 
   return (
