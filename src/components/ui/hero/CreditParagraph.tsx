@@ -11,14 +11,14 @@ const CreditParagraph = ({
   tagline,
 }: {
   name?: string;
-  value?: string | ProductionCompany[] | ProductionCountry[] | SpokenLanguage[];
+  value?: string | ProductionCompany[] | ProductionCountry[] | SpokenLanguage[]
   tagline?: string;
 }) => {
-  const realValue =
+  const updatedValue =
     typeof value === "string"
       ? value
       : typeof value === "object"
-      ? value.map((company: any) => company.name).join(", ") + "."
+      ? value.map((value: ProductionCompany | ProductionCountry | SpokenLanguage) => value.name).join(", ") + "."
       : "";
 
   return (
@@ -26,7 +26,7 @@ const CreditParagraph = ({
       {tagline === undefined && (
         <p>
           <span className="text-[#cecece] text-sm mr-3">{name}</span>
-          {realValue || "-"}
+          {updatedValue || "-"}
         </p>
       )}
       {tagline && (
