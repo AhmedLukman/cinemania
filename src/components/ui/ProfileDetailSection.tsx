@@ -31,10 +31,10 @@ const ProfileDetailSection = ({
               )}
             </div>
             {cast.length > 0 && (
-              <ProfileCreditList mediaList={cast} title="Cast" />
+              <ProfileCreditList mediaList={cast.slice(0, 12)} title="Cast" />
             )}
             {crew.length > 0 && (
-              <ProfileCreditList mediaList={crew} title="Crew" />
+              <ProfileCreditList mediaList={crew.slice(0, 12)} title="Crew" />
             )}
           </section>
         </>
