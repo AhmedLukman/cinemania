@@ -18,15 +18,15 @@ const ProfileDetails = ({
   tvShowsCast: TTVShow[];
   tvShowsCrew: TTVShow[];
 }) => {
-  const { biography } = personDetails;
+  const { biography, id: personId } = personDetails;
   return (
     <main
       className="basis-2/3 p-5 rounded-lg text-white bg-gradient-to-r from-gray-800 to-gray-900"
     >
       <ProfileInfoSection personalDetails={personDetails} />
       <ProfileBiographySection biography={biography} />
-      <ProfileDetailSection cast={moviesCast} crew={moviesCrew} />
-      <ProfileDetailSection cast={tvShowsCast} crew={tvShowsCrew} />
+      <ProfileDetailSection cast={moviesCast} crew={moviesCrew} personId= {personId}/>
+      <ProfileDetailSection cast={tvShowsCast} crew={tvShowsCrew} personId={personId} />
     </main>
   );
 };
