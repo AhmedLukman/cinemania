@@ -1,30 +1,37 @@
 import { TMovie, TTVShow } from "@/lib/types";
-import { ScrollShadow } from "@nextui-org/react";
+import { Divider } from "@nextui-org/react";
 import React from "react";
-import MediaCard from "./MediaCard";
+import ProfileCreditList from "./ProfileCreditList";
 
 const ProfileDetailSection = ({
-  title,
-  mediaList,
+  cast,
+  crew,
 }: {
-  title: string;
-  mediaList: TMovie[] | TTVShow[];
-}) => (
-  <>
-    <h3 className="text-xl md:text-2xl font-serif mb-5">{title}</h3>
-    <ScrollShadow
-      hideScrollBar
-      className="grid grid-cols-2 xl:grid-cols-3 gap-5 h-[30rem]"
-    >
-      {mediaList.map((media) => (
-        <MediaCard
-          key={media.id}
-          media={media}
-          path={`/${"original_name" in media ? "tv" : "movie"}/${media.id}`}
-        />
-      ))}
-    </ScrollShadow>
-  </>
-);
+  cast: TMovie[] | TTVShow[];
+  crew: TMovie[] | TTVShow[];
+}) => {
+  const heading =
+    "original_name" in (cast[0] || crew[0]) ? "TV Credits" : "Movie Credits";
+  return (
+    <>
+      {(cast.length > 0 || crew.length > 0) && (
+        <>
+          <Divider className="mt-5 bg-neutral-600" />
+          <section>
+            <h2 className="text-2xl md:text-3xl font-bold my-5 font-serif">
+              {heading}
+            </h2>
+            {cast.length > 0 && (
+              <ProfileCreditList mediaList={cast} title="Cast" />
+            )}
+            {crew.length > 0 && (
+              <ProfileCreditList mediaList={crew} title="Crew" />
+            )}
+          </section>
+        </>
+      )}
+    </>
+  );
+};
 
 export default ProfileDetailSection;
