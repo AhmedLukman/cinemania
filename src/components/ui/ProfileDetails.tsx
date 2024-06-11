@@ -20,7 +20,9 @@ const ProfileDetails = ({
 }) => {
   const { biography } = personDetails;
   return (
-    <main className="basis-2/3 bg-white/10 p-5 rounded-lg text-white">
+    <main
+      className="basis-2/3 p-5 rounded-lg text-white bg-gradient-to-r from-gray-800 to-gray-900"
+    >
       <ProfileInfoSection personalDetails={personDetails} />
       <ProfileBiographySection biography={biography} />
       <ProfileDetailSection cast={moviesCast} crew={moviesCrew} />
