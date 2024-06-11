@@ -23,7 +23,7 @@ const ProfileCard = ({
   links: PersonLink;
 }) => {
   return (
-    <div className="flex justify-center basis-1/3">
+    <aside className="flex justify-center basis-1/3">
       <Card
         shadow="sm"
         className=" w-96 md:sticky md:top-16 self-start bg-white"
@@ -73,7 +73,7 @@ const ProfileCard = ({
           </div>
         </CardFooter>
       </Card>
-    </div>
+    </aside>
   );
 };
 
