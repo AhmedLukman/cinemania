@@ -58,45 +58,52 @@ const PeopleDetailsPage = ({
           Personal Info
         </h2>
         <p>
-          Age: <span className="text-gray-300">{getAge(birthday)}</span>
+          Age: <span className="text-gray-300">{birthday ? getAge(birthday) : '-'}</span>
         </p>
         <p className="my-2">
           <span>Birthday: </span>
           <time className="text-gray-300" dateTime={birthday}>
-            {birthday}
+            {birthday || '-'}
           </time>
         </p>
         {deathday && (
           <p className="my-2">
             <span>Deathday: </span>
-            <time className="text-gray-300" dateTime={birthday}>
+            <time className="text-gray-300" dateTime={deathday}>
               {deathday}
             </time>
           </p>
         )}
         <p className="my-2">
           Also known as:{" "}
-          <span className="text-gray-300">{also_known_as.join(", ")}.</span>
+          <span className="text-gray-300">
+            {also_known_as.length > 0 ? also_known_as.join(", ") + "." : "-"}
+          </span>
         </p>
         <p className="my-2">
-          Gender: <span className="text-gray-300">{getGender(gender)}</span>
+          Gender:{" "}
+          <span className="text-gray-300">
+            {gender ? getGender(gender) : "-"}
+          </span>
         </p>
         <p className="my-2">
           Place of birth:{" "}
-          <span className="text-gray-300">{place_of_birth}</span>
+          <span className="text-gray-300">{place_of_birth || "-"}</span>
         </p>
         <p>
-          Popularity: <span className="text-gray-300">{popularity}</span>
+          Popularity: <span className="text-gray-300">{popularity || "-"}</span>
         </p>
         <Divider className="mt-5 bg-neutral-600" />
         <h2 className="text-2xl md:text-3xl font-bold my-5 font-serif">
           Biography
         </h2>
-        {biography.split("\n").map((paragraph, index) => (
-          <p key={index} className="text-gray-300 whitespace-normal mb-4">
-            {paragraph}
-          </p>
-        ))}
+        {biography
+          ? biography.split("\n").map((paragraph, index) => (
+              <p key={index} className="text-gray-300 whitespace-normal mb-4">
+                {paragraph}
+              </p>
+            ))
+          : "-"}
 
         {(moviesCast.length > 0 || moviesCrew.length > 0) && (
           <>
