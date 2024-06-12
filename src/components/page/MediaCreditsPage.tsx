@@ -62,7 +62,7 @@ const MediaCreditsPage = ({
         <h2 className="text-2xl mx-2 md:mx-4 text-white md:text-3xl font-bold mb-10 font-serif">
           Cast Credits
         </h2>
-        <MediaGrid path="movie" media={castPagination.pagedItems} />
+        <MediaGrid path={title.toLowerCase()} media={castPagination.pagedItems} />
         <div className="flex mt-10 justify-center items-center">
           <PaginationScrollUI
             currentPage={castPagination.currentPage}
@@ -80,7 +80,7 @@ const MediaCreditsPage = ({
         <h2 className="text-2xl mx-2 md:mx-4 text-white md:text-3xl font-bold mb-10 font-serif">
           Crew Credits
         </h2>
-        <MediaGrid path="tv" media={crewPagination.pagedItems} />
+        <MediaGrid path={title.toLowerCase()} media={crewPagination.pagedItems} />
         <div className="flex mt-10 justify-center items-center">
           <PaginationScrollUI
             renderScrollToTop={false}
