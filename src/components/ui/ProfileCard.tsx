@@ -6,7 +6,7 @@ import {
   faXTwitter,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-import { Card, CardBody, CardFooter, Image, Link } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Image, Link, cn } from "@nextui-org/react";
 import { getImageUrl } from "@/lib/utils";
 import { PersonLink } from "@/lib/types";
 import { SocialLink } from "./SocialLink";
@@ -16,23 +16,25 @@ const ProfileCard = ({
   name,
   homepage,
   links: { twitter_id, facebook_id, instagram_id, youtube_id, imdb_id },
+  className
 }: {
   profilePath: string;
   name: string;
   homepage: string;
   links: PersonLink;
+  className?: string;
 }) => {
   return (
       <Card
         shadow="sm"
-        className=" md:sticky md:top-16 self-start bg-white"
+        className={cn("bg-white", className)}
       >
         <CardBody className="overflow-visible p-0">
           <Image
             shadow="sm"
             radius="lg"
             alt={""}
-            className=" w-96 h-96 md:h-[65vh] object-cover"
+            className=" w-96 h-96 md:h-[60vh] object-cover"
             src={getImageUrl(profilePath)}
           />
         </CardBody>

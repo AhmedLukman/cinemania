@@ -25,6 +25,7 @@ const PeopleDetailsPage = ({
     <div className="flex flex-col md:flex-row gap-7 md:gap-10 md:mx-10 mt-20 mx-5 ">
       <aside className="flex justify-center basis-1/3">
         <ProfileCard
+          className="md:sticky md:top-16 self-start"
           links={personLink}
           homepage={homepage}
           name={name}
