@@ -29,17 +29,27 @@ const MediaCreditsPage = ({
 
   const itemsPerPage = 20;
 
-  const castPagination = usePagination({
+  const {
+    currentPage: currentCastPage,
+    pagedItems: castPagedItems,
+    setCurrentPage: setCurrentCastPage,
+    totalPages: totalCastPages,
+  } = usePagination({
     credits: mediaCredits.cast,
     itemsPerPage,
   });
-  const crewPagination = usePagination({
+  const {
+    currentPage: currentCrewPage,
+    pagedItems: crewPagedItems,
+    setCurrentPage: setCurrentCrewPage,
+    totalPages: totalCrewPages,
+  } = usePagination({
     credits: mediaCredits.crew,
     itemsPerPage,
   });
 
-  const castRef = useScrollIntoView({ page: castPagination.currentPage });
-  const crewRef = useScrollIntoView({ page: crewPagination.currentPage });
+  const castRef = useScrollIntoView({ page: currentCastPage });
+  const crewRef = useScrollIntoView({ page: currentCrewPage });
 
   return (
     <main>
@@ -58,38 +68,43 @@ const MediaCreditsPage = ({
         </div>
       </section>
 
-      <section ref={castRef} className="p-5 md:px-20">
-        <h2 className="text-2xl mx-2 md:mx-4 text-white md:text-3xl font-bold mb-10 font-serif">
-          Cast Credits
-        </h2>
-        <MediaGrid path={title.toLowerCase()} media={castPagination.pagedItems} />
-        <div className="flex mt-10 justify-center items-center">
-          <PaginationScrollUI
-            currentPage={castPagination.currentPage}
-            setCurrentPage={castPagination.setCurrentPage}
-            totalPages={castPagination.totalPages}
-          />
+      {castPagedItems.length > 0 && (
+        <section ref={castRef} className="p-5 md:px-20">
+          <h2 className="text-2xl mx-2 md:mx-4 text-white md:text-3xl font-bold mb-10 font-serif">
+            Cast Credits
+          </h2>
+          <MediaGrid path={title.toLowerCase()} media={castPagedItems} />
+          <div className="flex mt-10 justify-center items-center">
+            <PaginationScrollUI
+              currentPage={currentCastPage}
+              setCurrentPage={setCurrentCastPage}
+              totalPages={totalCastPages}
+            />
+          </div>
+        </section>
+      )}
+      {crewPagedItems.length > 0 && castPagedItems.length > 0 && (
+        <div className="p-5 md:px-20">
+          <Divider className="my-5 bg-neutral-600" />
         </div>
-      </section>
+      )}
 
-      <div className="p-5 md:px-20">
-        <Divider className="my-5 bg-neutral-600" />
-      </div>
-
-      <section ref={crewRef} className="p-5 md:px-20">
-        <h2 className="text-2xl mx-2 md:mx-4 text-white md:text-3xl font-bold mb-10 font-serif">
-          Crew Credits
-        </h2>
-        <MediaGrid path={title.toLowerCase()} media={crewPagination.pagedItems} />
-        <div className="flex mt-10 justify-center items-center">
-          <PaginationScrollUI
-            renderScrollToTop={false}
-            currentPage={crewPagination.currentPage}
-            setCurrentPage={crewPagination.setCurrentPage}
-            totalPages={crewPagination.totalPages}
-          />
-        </div>
-      </section>
+      {crewPagedItems.length > 0 && (
+        <section ref={crewRef} className="p-5 md:px-20">
+          <h2 className="text-2xl mx-2 md:mx-4 text-white md:text-3xl font-bold mb-10 font-serif">
+            Crew Credits
+          </h2>
+          <MediaGrid path={title.toLowerCase()} media={crewPagedItems} />
+          <div className="flex mt-10 justify-center items-center">
+            <PaginationScrollUI
+              renderScrollToTop={false}
+              currentPage={currentCrewPage}
+              setCurrentPage={setCurrentCrewPage}
+              totalPages={totalCrewPages}
+            />
+          </div>
+        </section>
+      )}
     </main>
   );
 };
