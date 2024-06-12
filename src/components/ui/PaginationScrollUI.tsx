@@ -8,21 +8,25 @@ const PaginationScrollUI = ({
   currentPage,
   totalPages,
   setCurrentPage,
+  renderScrollToTop = true,
 }: {
   currentPage: number;
   totalPages: number;
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  renderScrollToTop?: boolean;
 }) => {
   return (
     <>
-      <ScrollToTop
-        smooth
-        component={<FontAwesomeIcon icon={faArrowUp} size="lg" />}
-        className="hidden md:flex items-center justify-center !shadow-lg !shadow-slate-400 -mr-4"
-      />
+      {renderScrollToTop && (
+        <ScrollToTop
+          smooth
+          component={<FontAwesomeIcon icon={faArrowUp} size="lg" />}
+          className="hidden md:flex items-center justify-center !shadow-lg !shadow-slate-400 -mr-4"
+        />
+      )}
       <Pagination
         classNames={{
-          wrapper: 'gap-x-2',
+          wrapper: "gap-x-2",
           cursor:
             "bg-gradient-to-b from-default-500 to-default-800 text-white font-bold",
         }}

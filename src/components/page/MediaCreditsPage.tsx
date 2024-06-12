@@ -83,6 +83,7 @@ const MediaCreditsPage = ({
         <MediaGrid path="tv" media={crewPagination.pagedItems} />
         <div className="flex mt-10 justify-center items-center">
           <PaginationScrollUI
+            renderScrollToTop={false}
             currentPage={crewPagination.currentPage}
             setCurrentPage={crewPagination.setCurrentPage}
             totalPages={crewPagination.totalPages}
