@@ -23,10 +23,9 @@ const ProfileCard = ({
   links: PersonLink;
 }) => {
   return (
-    <aside className="flex justify-center basis-1/3">
       <Card
         shadow="sm"
-        className=" w-96 md:sticky md:top-16 self-start bg-white"
+        className=" md:sticky md:top-16 self-start bg-white"
       >
         <CardBody className="overflow-visible p-0">
           <Image
@@ -73,7 +72,6 @@ const ProfileCard = ({
           </div>
         </CardFooter>
       </Card>
-    </aside>
   );
 };
 
