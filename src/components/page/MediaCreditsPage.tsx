@@ -2,9 +2,10 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import {
-  PersonLink,
+  TPersonLink,
   TMovie,
   TPersonDetails,
+  TPersonImageResponse,
   TPersonMediaCredits,
   TTVShow,
 } from "@/lib/types";
@@ -19,10 +20,12 @@ const MediaCreditsPage = ({
   personDetails,
   mediaCredits,
   personLink,
+  imageResponse,
 }: {
   personDetails: TPersonDetails;
   mediaCredits: TPersonMediaCredits<TMovie> | TPersonMediaCredits<TTVShow>;
-  personLink: PersonLink;
+  personLink: TPersonLink;
+  imageResponse: TPersonImageResponse;
 }) => {
   const { name, homepage, profile_path } = personDetails;
   const title = "original_title" in mediaCredits.cast[0] ? "Movie" : "TV";
@@ -64,6 +67,7 @@ const MediaCreditsPage = ({
             name={name}
             className="self-center"
             profilePath={profile_path}
+            imageResponse={imageResponse}
           />
         </div>
       </section>

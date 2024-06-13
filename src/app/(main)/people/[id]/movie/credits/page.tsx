@@ -1,9 +1,10 @@
 import MediaCreditsPage from "@/components/page/MediaCreditsPage";
 import { MediaUrl } from "@/lib/constants";
 import {
-  PersonLink,
+  TPersonLink,
   TMovie,
   TPersonDetails,
+  TPersonImageResponse,
   TPersonMediaCredits,
 } from "@/lib/types";
 import { getMedia } from "@/lib/utils";
@@ -24,13 +25,18 @@ const MovieCreditsFetchPage = async ({
 
   const personLink = (await getMedia(
     `${MediaUrl}person/${id}/external_ids`
-  )) as PersonLink;
+  )) as TPersonLink;
+
+  const imageResponse = (await getMedia(
+    `${MediaUrl}person/${id}/images`
+  )) as TPersonImageResponse;
 
   return (
     <MediaCreditsPage
       personDetails={personDetails}
       mediaCredits={personMovieCredits}
       personLink={personLink}
+      imageResponse={imageResponse}
     />
   );
 };
