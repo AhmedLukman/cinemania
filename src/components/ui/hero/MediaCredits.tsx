@@ -37,7 +37,7 @@ const MediaCredits = ({
     }) => {
   const director = getDirector(credits);
   return (
-    <div className="mt-5 hover:bg-white/10 transition-all duration-300  space-y-2 p-6 rounded-lg bg-gradient-to-b from-white/20 via-white/10 to-white/20">
+    <div className="mt-5 space-y-2 p-6 rounded-lg bg-gradient-to-b from-white/20 via-white/10 to-white/20">
       {type === MediaType.MovieDetails && (
         <>
           <CreditParagraph name="Directed by:" value={director?.name || ""} />
