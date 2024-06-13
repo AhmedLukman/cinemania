@@ -10,6 +10,7 @@ import {
   TMediaCreditsResponse,
   TMovie,
   TMovieDetailsResponse,
+  TMediaLinks,
 } from "@/lib/types";
 import { getImageUrl } from "@/lib/utils";
 
@@ -19,12 +20,14 @@ const MovieDetailsPage = ({
   similarMovies,
   recommendedMovies,
   collection,
+  movieLinks
 }: {
   movie: TMovieDetailsResponse;
   credits: TMediaCreditsResponse;
   similarMovies: TMovie[];
   recommendedMovies: TMovie[];
   collection: Collection;
+  movieLinks: TMediaLinks;
 }) => {
   const { cast, crew } = credits;
   const img = getImageUrl(collection.backdrop_path, ImageSize.Large);
@@ -35,6 +38,7 @@ const MovieDetailsPage = ({
         <DetailsPosterContent
           type={MediaType.MovieDetails}
           media={movie}
+          mediaLinks={movieLinks}
           credits={credits}
         />
       </PosterContainer>

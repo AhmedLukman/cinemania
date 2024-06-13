@@ -6,6 +6,7 @@ import {
   TMediaResponse,
   TMovie,
   TMovieDetailsResponse,
+  TMediaLinks,
 } from "@/lib/types";
 import { getMedia } from "@/lib/utils";
 import { notFound } from "next/navigation";
@@ -51,6 +52,10 @@ const MovieDetailsFetchPage = async ({
     MoviesUrl.Origin + id + "/recommendations?language=en-US&page=1"
   )) as TMediaResponse<TMovie>;
 
+  const movieLinks = await getMedia(
+    MoviesUrl.Origin + id + "/external_ids"
+  ) as TMediaLinks;
+
   const collection =
     movie.belongs_to_collection &&
     ((await getMedia(
@@ -67,6 +72,7 @@ const MovieDetailsFetchPage = async ({
       recommendedMovies={recommendedMovies}
       similarMovies={similarMovies}
       collection={collection || {}}
+      movieLinks={movieLinks}
     />
   );
 };

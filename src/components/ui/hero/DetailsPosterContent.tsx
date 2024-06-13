@@ -3,6 +3,7 @@ import MediaActions from "./MediaActions";
 import {
   TMediaCreditsResponse,
   TMovieDetailsResponse,
+  TMovieLinks,
   TTVShowDetailsResponse,
 } from "@/lib/types";
 import { MediaType } from "@/lib/constants";
@@ -14,18 +15,20 @@ const DetailsPosterContent = ({
   media,
   type,
   credits,
+  mediaLinks,
 }:
   | {
       media: TMovieDetailsResponse;
       type: MediaType.MovieDetails;
       credits: TMediaCreditsResponse;
+      mediaLinks: TMovieLinks;
     }
   | {
       media: TTVShowDetailsResponse;
       type: MediaType.TVDetails;
       credits: TMediaCreditsResponse;
+      mediaLinks: TMovieLinks;
     }) => {
-
   return (
     <div className="md:w-2/3 min-h-[75svh] relative z-10 pt-24 pb-10">
       <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold font-serif max-w-3xl">
@@ -43,15 +46,20 @@ const DetailsPosterContent = ({
         {media.overview}
       </p>
       <MediaActions
-        homepageURL={("homepage" in media && (media.homepage as string)) || ""}
+        // homepageURL={("homepage" in media && (media.homepage as string)) || ""}
         mediaId={media.id}
         title={getMediaTitle(media)}
       />
       {type === MediaType.MovieDetails && (
-        <MediaCredits credits={credits} media={media} type={type} />
+        <MediaCredits
+          mediaLinks={mediaLinks}
+          credits={credits}
+          media={media}
+          type={type}
+        />
       )}
       {type === MediaType.TVDetails && (
-        <MediaCredits credits={credits} media={media} type={type} />
+        <MediaCredits mediaLinks={mediaLinks} credits={credits} media={media} type={type} />
       )}
     </div>
   );

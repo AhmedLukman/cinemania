@@ -2,6 +2,7 @@ import TVShowDetailsPage from "@/components/page/TVShowDetailsPage";
 import { TVShowsUrl } from "@/lib/constants";
 import {
   TMediaCreditsResponse,
+  TMediaLinks,
   TMediaResponse,
   TTVShow,
   TTVShowDetailsResponse,
@@ -33,12 +34,17 @@ const TVShowDetailsFetchPage = async ({
     TVShowsUrl.Origin + id + "/recommendations?language=en-US&page=1"
   )) as TMediaResponse<TTVShow>;
 
+    const tvLinks = (await getMedia(
+      TVShowsUrl.Origin + id + "/external_ids"
+    )) as TMediaLinks;
+
   return (
     <TVShowDetailsPage
       tvShow={tvShow}
       credits={credits}
       recommendedTVShows={recommendedTVShows}
       similarTVShows={similarTVShows}
+      tvLinks={tvLinks}
     />
   );
 };

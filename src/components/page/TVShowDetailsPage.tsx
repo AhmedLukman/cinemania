@@ -7,6 +7,7 @@ import PosterContainer from "@/components/ui/hero/PosterContainer";
 import { ImageSize, MediaType } from "@/lib/constants";
 import {
   TMediaCreditsResponse,
+  TMediaLinks,
   TTVShow,
   TTVShowDetailsResponse,
 } from "@/lib/types";
@@ -19,11 +20,13 @@ const TVShowDetailsPage = ({
   credits,
   similarTVShows,
   recommendedTVShows,
+  tvLinks,
 }: {
   tvShow: TTVShowDetailsResponse;
   credits: TMediaCreditsResponse;
   similarTVShows: TTVShow[];
   recommendedTVShows: TTVShow[];
+  tvLinks: TMediaLinks;
 }) => {
   const { cast, crew } = credits;
   const { networks, seasons } = tvShow;
@@ -31,6 +34,7 @@ const TVShowDetailsPage = ({
     <>
       <PosterContainer media={tvShow}>
         <DetailsPosterContent
+          mediaLinks={tvLinks}
           type={MediaType.TVDetails}
           media={tvShow}
           credits={credits}

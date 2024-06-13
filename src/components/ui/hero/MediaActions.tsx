@@ -13,17 +13,15 @@ import React, { useState } from "react";
 import VideoModal from "./VideoModal";
 import { usePathname } from "next/navigation";
 import ImageModal from "./ImageModal";
-import { toast } from 'sonner'
+import { toast } from "sonner";
 import { useSession } from "next-auth/react";
 
 const MediaActions = ({
   mediaId,
   title,
-  homepageURL,
 }: {
   mediaId: number;
   title: string;
-  homepageURL: string;
 }) => {
   const [isIconClicked, setIsIconClicked] = useState(false);
 
@@ -48,7 +46,7 @@ const MediaActions = ({
   const handleFavClick = () => {
     if (!user) {
       toast.info("Sign in in order to favorite films");
-      return
+      return;
     }
     setIsIconClicked((prevState) => !prevState);
   };
@@ -112,15 +110,6 @@ const MediaActions = ({
         >
           120
         </Button>
-        {homepageURL && (
-          <Link
-            className="text-white/60"
-            title="Visit homepage"
-            isExternal
-            href={homepageURL}
-            showAnchorIcon
-          />
-        )}
       </div>
     </div>
   );

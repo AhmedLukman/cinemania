@@ -5,24 +5,35 @@ import {
   TMediaCredits,
   TMediaCreditsResponse,
   TMovieDetailsResponse,
+  TMediaLinks,
   TTVShowDetailsResponse,
 } from "@/lib/types";
 import { MediaType } from "@/lib/constants";
+import { Link } from "@nextui-org/react";
+import { SocialLink } from "../SocialLink";
+import {
+  faImdb,
+  faInstagram,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const MediaCredits = ({
   type,
   credits,
   media,
+  mediaLinks: { imdb_id, instagram_id, twitter_id },
 }:
   | {
       media: TMovieDetailsResponse;
       type: MediaType.MovieDetails;
       credits: TMediaCreditsResponse;
+      mediaLinks: TMediaLinks;
     }
   | {
       media: TTVShowDetailsResponse;
       type: MediaType.TVDetails;
       credits: TMediaCreditsResponse;
+      mediaLinks: TMediaLinks;
     }) => {
   const director = getDirector(credits);
   return (
@@ -68,6 +79,35 @@ const MediaCredits = ({
         value={media.spoken_languages}
       />
       <CreditParagraph tagline={media.tagline} />
+      <div className="flex justify-center gap-4 pt-2">
+        <SocialLink
+          className="text-neutral-500"
+          id={twitter_id}
+          baseUrl="www.x.com"
+          icon={faXTwitter}
+        />
+        <SocialLink
+          className="text-neutral-500"
+          id={instagram_id}
+          baseUrl="www.instagram.com"
+          icon={faInstagram}
+        />
+        <SocialLink
+          className="text-neutral-500"
+          id={imdb_id}
+          baseUrl="www.imdb.com"
+          icon={faImdb}
+        />
+        {media.homepage && (
+          <Link
+            className="text-white/60"
+            title="Visit homepage"
+            isExternal
+            href={media.homepage}
+            showAnchorIcon
+          />
+        )}
+      </div>
     </div>
   );
 };
