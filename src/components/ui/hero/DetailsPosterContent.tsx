@@ -3,7 +3,7 @@ import MediaActions from "./MediaActions";
 import {
   TMediaCreditsResponse,
   TMovieDetailsResponse,
-  TMovieLinks,
+  TMediaLinks,
   TTVShowDetailsResponse,
 } from "@/lib/types";
 import { MediaType } from "@/lib/constants";
@@ -21,13 +21,13 @@ const DetailsPosterContent = ({
       media: TMovieDetailsResponse;
       type: MediaType.MovieDetails;
       credits: TMediaCreditsResponse;
-      mediaLinks: TMovieLinks;
+      mediaLinks: TMediaLinks;
     }
   | {
       media: TTVShowDetailsResponse;
       type: MediaType.TVDetails;
       credits: TMediaCreditsResponse;
-      mediaLinks: TMovieLinks;
+      mediaLinks: TMediaLinks;
     }) => {
   return (
     <div className="md:w-2/3 min-h-[75svh] relative z-10 pt-24 pb-10">
