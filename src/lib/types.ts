@@ -431,7 +431,7 @@ export type TMediaActions =
   | { type: PosterType.TV; media: TTVShow }
   | { type: PosterType.Movie; media: TMovie };
 
-export type PersonLink = {
+export type TPersonLink = {
   id?: number;
   freebase_mid?: string;
   freebase_id?: string;
@@ -443,4 +443,19 @@ export type PersonLink = {
   tiktok_id?: string;
   twitter_id: string;
   youtube_id: string;
+};
+
+type Profile = {
+  aspect_ratio: number;
+  height: number;
+  iso_639_1: string;
+  file_path: string;
+  vote_average: number;
+  vote_count: number;
+  width: number;
+};
+
+export type TPersonImageResponse = {
+  id: number;
+  profiles: Profile[];
 };
