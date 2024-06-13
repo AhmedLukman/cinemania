@@ -11,10 +11,28 @@ const TVShowsPage = ({
   trendingDailyTVShows,
   topRatedTVShows,
   upcomingTVShows,
+  airingTodayTVShows
 }: TTVShowPage) => {
   return (
     <>
       <DoubleSlider type={MediaType.TV} popularMedia={popularTVShows} />
+
+      <MediaCategory
+        media={trendingDailyTVShows}
+        path={`/tv/category/airing-today`}
+        heading="Airing Today"
+      >
+        <MediaCategorySlider mediaLength={airingTodayTVShows.length}>
+          {airingTodayTVShows.map((airingTodayTVShow) => (
+            <MediaCard
+              className="card-padding"
+              key={airingTodayTVShow.id}
+              media={airingTodayTVShow}
+              path={`/tv/${airingTodayTVShow.id}`}
+            />
+          ))}
+        </MediaCategorySlider>
+      </MediaCategory>
 
       <MediaCategory
         media={trendingDailyTVShows}

@@ -30,7 +30,9 @@ const TVCategoryPage = ({
       ? TVShowsUrl.Upcoming
       : id === "top-rated"
       ? TVShowsUrl.TopRated
-      : "";
+      : id === "airing-today"
+      ? TVShowsUrl.AiringToday
+      : null;
 
   if (!url) notFound();
 
