@@ -34,8 +34,6 @@ const TVCategoryPage = ({
       ? TVShowsUrl.AiringToday
       : null;
 
-  if (!url) notFound();
-
   useEffect(() => {
     if (currentPage === page) {
       setTVShows(results);
