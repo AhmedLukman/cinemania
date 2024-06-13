@@ -64,18 +64,26 @@ const ProfileCard = ({
             id={twitter_id}
             baseUrl="www.x.com"
             icon={faXTwitter}
+            type="Person"
           />
           <SocialLink
             id={instagram_id}
             baseUrl="www.instagram.com"
             icon={faInstagram}
+            type="Person"
           />
           <SocialLink
             id={youtube_id}
             baseUrl="www.youtube.com"
             icon={faYoutube}
+            type="Person"
           />
-          <SocialLink id={imdb_id} baseUrl="www.imdb.com" icon={faImdb} />
+          <SocialLink
+            id={imdb_id}
+            baseUrl="www.imdb.com"
+            type="Person"
+            icon={faImdb}
+          />
           <PersonImageModal
             isOpen={isOpen}
             onOpenChange={onOpenChange}
