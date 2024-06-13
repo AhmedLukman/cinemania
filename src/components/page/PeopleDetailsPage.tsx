@@ -1,10 +1,11 @@
 import React from "react";
 import {
-  PersonLink,
+  TPersonLink,
   TMovie,
   TPersonDetails,
   TPersonMediaCredits,
   TTVShow,
+  TPersonImageResponse,
 } from "@/lib/types";
 import ProfileCard from "../ui/ProfileCard";
 import ProfileDetails from "../ui/ProfileDetails";
@@ -14,11 +15,13 @@ const PeopleDetailsPage = ({
   personMovieCredits: { cast: moviesCast, crew: moviesCrew },
   personTVShowCredits: { cast: tvShowsCast, crew: tvShowsCrew },
   personLink,
+  imageResponse,
 }: {
   personDetails: TPersonDetails;
   personMovieCredits: TPersonMediaCredits<TMovie>;
   personTVShowCredits: TPersonMediaCredits<TTVShow>;
-  personLink: PersonLink;
+  personLink: TPersonLink;
+  imageResponse: TPersonImageResponse;
 }) => {
   const { name, homepage, profile_path } = personDetails;
   return (
@@ -30,6 +33,7 @@ const PeopleDetailsPage = ({
           homepage={homepage}
           name={name}
           profilePath={profile_path}
+          imageResponse={imageResponse}
         />
       </aside>
       <ProfileDetails

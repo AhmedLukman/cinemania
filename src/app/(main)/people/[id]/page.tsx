@@ -1,11 +1,12 @@
 import React from "react";
 import { MediaUrl } from "@/lib/constants";
 import {
-  PersonLink,
+  TPersonLink,
   TMovie,
   TPersonDetails,
   TPersonMediaCredits,
   TTVShow,
+  TPersonImageResponse,
 } from "@/lib/types";
 import { getMedia } from "@/lib/utils";
 import PeopleDetailsPage from "@/components/page/PeopleDetailsPage";
@@ -29,7 +30,11 @@ const PeopleDetailsFetchPage = async ({
 
   const personLink = (await getMedia(
     `${MediaUrl}person/${id}/external_ids`
-  )) as PersonLink;
+  )) as TPersonLink;
+
+  const imageResponse = (await getMedia(
+    `${MediaUrl}person/${id}/images`
+  )) as TPersonImageResponse;
 
   return (
     <PeopleDetailsPage
@@ -37,6 +42,7 @@ const PeopleDetailsFetchPage = async ({
       personMovieCredits={personMovieCredits}
       personTVShowCredits={personTVShowCredits}
       personLink={personLink}
+      imageResponse={imageResponse}
     />
   );
 };
