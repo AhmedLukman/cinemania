@@ -62,7 +62,7 @@ const ProfileCard = ({
         <div className="space-x-3 flex items-center">
           <SocialLink
             id={twitter_id}
-            baseUrl="www.twitter.com"
+            baseUrl="www.x.com"
             icon={faXTwitter}
           />
           <SocialLink
