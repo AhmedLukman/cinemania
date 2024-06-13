@@ -29,7 +29,7 @@ const ProfileCard = ({
   profilePath,
   name,
   homepage,
-  links: { twitter_id, facebook_id, instagram_id, youtube_id, imdb_id },
+  links: { twitter_id, instagram_id, youtube_id, imdb_id },
   className,
   imageResponse,
 }: {
@@ -69,11 +69,6 @@ const ProfileCard = ({
             id={instagram_id}
             baseUrl="www.instagram.com"
             icon={faInstagram}
-          />
-          <SocialLink
-            id={facebook_id}
-            baseUrl="www.facebook.com"
-            icon={faFacebook}
           />
           <SocialLink
             id={youtube_id}
