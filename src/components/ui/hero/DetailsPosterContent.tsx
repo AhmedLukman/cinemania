@@ -46,7 +46,6 @@ const DetailsPosterContent = ({
         {media.overview}
       </p>
       <MediaActions
-        // homepageURL={("homepage" in media && (media.homepage as string)) || ""}
         mediaId={media.id}
         title={getMediaTitle(media)}
       />
