@@ -7,15 +7,17 @@ export const SocialLink = ({
   id,
   baseUrl,
   icon,
+  className = "text-black",
 }: {
   id: string;
   baseUrl: string;
   icon: IconProp;
+  className?: string;
 }) => {
   return id ? (
     <Link
       isExternal
-      className="text-black"
+      className={className}
       href={`https://${
         baseUrl.includes("imdb") ? baseUrl + "/name" : baseUrl
       }/${id}`}
