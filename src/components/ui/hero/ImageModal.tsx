@@ -10,15 +10,10 @@ import {
   Button,
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
-import { dataUrl, getMedia, getImageUrl, getPath } from "@/lib/utils";
-import Image from "next/image";
-import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
-import { ImageSize, MoviesUrl, TVShowsUrl } from "@/lib/constants";
-import {
-  TImageResponse,
-  TMovieDetailsResponse,
-  TTVShowDetailsResponse,
-} from "@/lib/types";
+import { getMedia } from "@/lib/utils";
+import { MoviesUrl, TVShowsUrl } from "@/lib/constants";
+import { TImageResponse } from "@/lib/types";
+import ImageModalSection from "./ImageModalSection";
 
 const ImageModal = ({
   isOpen,
@@ -31,9 +26,6 @@ const ImageModal = ({
   mediaId: number;
   title: string;
 }) => {
-  // const path = pathname.startsWith("/movie")
-  //   ? `${MoviesUrl.Origin}`
-  //   : `${TVShowsUrl.Origin}`;
   const [imageData, setImageData] = useState<TImageResponse | null>(null);
   const [error, setError] = useState("");
   const pathname = usePathname();
@@ -86,78 +78,27 @@ const ImageModal = ({
             <ModalBody>
               {imageData && !error && (
                 <>
-                  <section>
-                    {imageData?.backdrops && imageData.backdrops.length > 0 && (
-                      <>
-                        <h3 className="text-2xl font-bold">Backdrops</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                          {imageData.backdrops.map((image, index) => (
-                            <Image
-                              unoptimized
-                              key={index}
-                              placeholder={dataUrl as PlaceholderValue}
-                              alt=""
-                              width={500}
-                              height={300}
-                              src={getImageUrl(
-                                image.file_path,
-                                ImageSize.Small
-                              )}
-                              className="m-2"
-                            />
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </section>
-                  <section>
-                    {imageData?.logos && imageData.logos.length > 0 && (
-                      <>
-                        <h3 className="text-2xl font-bold">Logos</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                          {imageData.logos.map((image, index) => (
-                            <Image
-                              unoptimized
-                              key={index}
-                              placeholder={dataUrl as PlaceholderValue}
-                              alt=""
-                              width={500}
-                              height={320}
-                              src={getImageUrl(
-                                image.file_path,
-                                ImageSize.Small
-                              )}
-                              className="m-2"
-                            />
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </section>
-                  <section>
-                    {imageData?.posters && imageData.posters.length > 0 && (
-                      <>
-                        <h3 className="text-2xl font-bold">Posters</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                          {imageData.posters.map((image, index) => (
-                            <Image
-                              unoptimized
-                              key={index}
-                              placeholder={dataUrl as PlaceholderValue}
-                              alt=""
-                              width={500}
-                              height={750}
-                              src={getImageUrl(
-                                image.file_path,
-                                ImageSize.Small
-                              )}
-                              className="m-2"
-                            />
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </section>
+                  {imageData.backdrops.length > 0 && (
+                    <ImageModalSection
+                      images={imageData.backdrops}
+                      title={title}
+                      heading="Backdrops"
+                    />
+                  )}
+                  {imageData.logos.length > 0 && (
+                    <ImageModalSection
+                      images={imageData.logos}
+                      title={title}
+                      heading="Logos"
+                    />
+                  )}
+                  {imageData.posters.length > 0 && (
+                    <ImageModalSection
+                      images={imageData.posters}
+                      title={title}
+                      heading="Posters"
+                    />
+                  )}
                 </>
               )}
               {!error && !imageData && (
