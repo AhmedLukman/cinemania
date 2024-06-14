@@ -24,8 +24,8 @@ const ImageModalSection = ({
             key={index}
             placeholder={dataUrl as PlaceholderValue}
             alt={`${title} ${heading.slice(0, -1)} image`}
-            width={image.height}
-            height={image.width}
+            width={image.width}
+            height={image.height}
             src={getImageUrl(image.file_path, ImageSize.Small)}
             className="m-2"
           />
