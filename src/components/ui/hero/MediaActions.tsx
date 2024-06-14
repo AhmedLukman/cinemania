@@ -67,7 +67,7 @@ const MediaActions = ({
           onOpenChange={onImageOpenChange}
         />
       )}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center justify-between gap-2">
         <Button
           onPress={onVideoOpen}
           endContent={<FontAwesomeIcon icon={faPlay} />}
