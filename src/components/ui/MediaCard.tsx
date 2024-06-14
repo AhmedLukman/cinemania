@@ -29,6 +29,8 @@ const MediaCard = ({
   const isCrew = "job" in media;
   const isCast = "character" in media;
 
+  const imageTitle = getMediaTitle(media);
+
   return (
     <div className={className}>
       <Card
@@ -36,7 +38,7 @@ const MediaCard = ({
         as={Link}
         href={path}
         radius="lg"
-        className="border-none relative group h-72 md:h-[430px] shadow-sm shadow-gray-500"
+        className="border-none relative hover:opacity-100 group h-72 md:h-[430px] shadow-sm shadow-gray-500"
       >
         {"episode_number" in media && media.episode_number && (
           <span className="absolute bg-gradient-to-b from-black/40 via-black to-black/40 z-50 text-white py-3 px-5 text-center rounded-tl-lg rounded-tr-none rounded-br-xl">
@@ -46,7 +48,7 @@ const MediaCard = ({
         <Image
           unoptimized
           placeholder={dataUrl as PlaceholderValue}
-          alt={"imageAlt"}
+          alt={imageTitle}
           className="object-cover md:group-hover:scale-110 transition duration-300"
           fill
           src={
@@ -63,7 +65,7 @@ const MediaCard = ({
               "text-center mx-6 rounded-lg max-w-sm text-white text-lg"
             )}
           >
-            {getMediaTitle(media)}
+            {imageTitle}
           </Element>
           {(isCast || isCrew) && (
             <p className="text-gray-500 text-center text-sm">
