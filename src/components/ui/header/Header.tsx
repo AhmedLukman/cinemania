@@ -25,7 +25,7 @@ const Header = () => {
       <div className="w-full flex items-center gap-4">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden text-white"
+          className="sm:hidden text-white p-4"
         />
         <NavbarBrand>
           <Logo />
