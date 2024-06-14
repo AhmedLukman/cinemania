@@ -38,7 +38,7 @@ const MediaCard = ({
         as={Link}
         href={path}
         radius="lg"
-        className="border-none relative hover:opacity-100 group h-72 md:h-[430px] shadow-sm shadow-gray-500"
+        className="border-none relative hover:opacity-100 active:opacity-100 group h-72 md:h-[430px] shadow-sm shadow-gray-500"
       >
         {"episode_number" in media && media.episode_number && (
           <span className="absolute bg-gradient-to-b from-black/40 via-black to-black/40 z-50 text-white py-3 px-5 text-center rounded-tl-lg rounded-tr-none rounded-br-xl">
