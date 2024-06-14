@@ -13,7 +13,7 @@ import ProfileCard from "../ui/ProfileCard";
 import MediaGrid from "../ui/MediaGrid";
 import { Divider } from "@nextui-org/react";
 import PaginationScrollUI from "../ui/PaginationScrollUI";
-import { usePagination } from "@/hooks/usePagination";
+import { useClientSidePagination } from "@/hooks/useClientSidePagination";
 import { useScrollIntoView } from "@/hooks/useScrollIntoView";
 
 const MediaCreditsPage = ({
@@ -37,7 +37,7 @@ const MediaCreditsPage = ({
     pagedItems: castPagedItems,
     setCurrentPage: setCurrentCastPage,
     totalPages: totalCastPages,
-  } = usePagination({
+  } = useClientSidePagination({
     credits: mediaCredits.cast,
     itemsPerPage,
   });
@@ -46,7 +46,7 @@ const MediaCreditsPage = ({
     pagedItems: crewPagedItems,
     setCurrentPage: setCurrentCrewPage,
     totalPages: totalCrewPages,
-  } = usePagination({
+  } = useClientSidePagination({
     credits: mediaCredits.crew,
     itemsPerPage,
   });

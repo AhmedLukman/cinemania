@@ -1,7 +1,7 @@
 import { TMovie, TTVShow } from "@/lib/types";
 import { useEffect, useState } from "react";
 
-export const usePagination = ({credits, itemsPerPage}: {
+export const useClientSidePagination = ({credits, itemsPerPage}: {
     credits: TMovie[] | TTVShow[];
     itemsPerPage: number;
 }) => {
