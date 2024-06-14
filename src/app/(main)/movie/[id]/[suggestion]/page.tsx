@@ -54,7 +54,7 @@ const SuggestionMoviePage = async ({
 
   return (
     <div className="md:p-14 pt-10">
-      <h1 className="text-3xl font-serif text-white my-10 mx-2 md:mx-4">
+      <h1 className="text-3xl font-serif text-white my-10 mx-2 md:mx-4 font-bold">
         {heading} {movieName}
       </h1>
       <MediaGrid path="movie" media={movies.results} />;
