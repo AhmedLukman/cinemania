@@ -14,7 +14,7 @@ const PeoplePage = ({
   latestCreated: TPeople;
 }) => {
   return (
-    <div className="pt-20 md:pt-14">
+    <div className="pt-14">
       <MediaCategory
         media={popularPeople}
         path={"/people/category/popular"}
