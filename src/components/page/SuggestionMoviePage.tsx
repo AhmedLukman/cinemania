@@ -6,6 +6,7 @@ import MediaGrid from "../ui/MediaGrid";
 import PaginationScrollUI from "../ui/PaginationScrollUI";
 import { CircularProgress } from "@nextui-org/react";
 import useServerSidePagination from "@/hooks/useServerSidePagination";
+import { useScrollIntoView } from "@/hooks/useScrollIntoView";
 
 const SuggestionMoviePage = ({
   movies,
@@ -29,13 +30,15 @@ const SuggestionMoviePage = ({
     suggestion,
   });
 
+  const scrollRef = useScrollIntoView({ page: currentPage });
+
   const heading =
     suggestion === "recommendations"
       ? "Recommended movies to"
       : "Similar movies to";
 
   return (
-    <div className="md:p-14 pt-10">
+    <div ref={scrollRef} className="md:p-14 pt-10">
       <h1 className="text-3xl font-serif text-white my-10 mx-2 md:mx-4 font-bold">
         {heading} {movieName}
       </h1>
