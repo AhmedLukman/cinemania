@@ -11,7 +11,8 @@ const TVShowsPage = ({
   trendingDailyTVShows,
   topRatedTVShows,
   upcomingTVShows,
-  airingTodayTVShows
+  airingTodayTVShows,
+  latestTVShow,
 }: TTVShowPage) => {
   return (
     <>
@@ -82,6 +83,17 @@ const TVShowsPage = ({
               path={`/tv/${upcomingTVShow.id}`}
             />
           ))}
+        </MediaCategorySlider>
+      </MediaCategory>
+
+      <MediaCategory media={[latestTVShow]} heading="Latest">
+        <MediaCategorySlider mediaLength={1}>
+          <MediaCard
+            className="card-padding"
+            key={latestTVShow.id}
+            media={latestTVShow}
+            path={`/tv/${latestTVShow.id}`}
+          />
         </MediaCategorySlider>
       </MediaCategory>
     </>

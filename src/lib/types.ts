@@ -254,6 +254,7 @@ export type TTVShowPage = {
   topRatedTVShows: TTVShow[];
   upcomingTVShows: TTVShow[];
   airingTodayTVShows: TTVShow[];
+  latestTVShow: TTVShow;
 };
 
 export type TMediaCreditsResponse = {

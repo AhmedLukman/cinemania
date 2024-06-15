@@ -27,6 +27,7 @@ const TVShowsPageDataFetch = async () => {
   const {results: airingTodayTVShows} = await getMedia(
     TVShowsUrl.AiringToday + "?language=en-US&page=1"
   ) as TMediaResponse<TTVShow>;
+  const latestTVShow = await getMedia(TVShowsUrl.Latest) as TTVShow;
 
   return (
       <TVShowsPage
@@ -35,6 +36,7 @@ const TVShowsPageDataFetch = async () => {
         topRatedTVShows={topRatedTVShows}
         upcomingTVShows={upcomingTVShows}
         airingTodayTVShows={airingTodayTVShows}
+        latestTVShow={latestTVShow}
       />
   );
 };
