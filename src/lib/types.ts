@@ -245,6 +245,7 @@ export type TMoviesPage = {
   trendingDailyMovies: TMovie[];
   topRatedMovies: TMovie[];
   upcomingMovies: TMovie[];
+  latestMovie: TMovie;
 };
 
 export type TTVShowPage = {

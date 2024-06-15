@@ -12,6 +12,7 @@ const MoviesPage = ({
   trendingDailyMovies,
   topRatedMovies,
   upcomingMovies,
+  latestMovie,
 }: TMoviesPage) => {
   return (
     <>
@@ -82,6 +83,17 @@ const MoviesPage = ({
               path={`/movie/${upcomingMovie.id}`}
             />
           ))}
+        </MediaCategorySlider>
+      </MediaCategory>
+
+      <MediaCategory media={[latestMovie]} heading="Latest">
+        <MediaCategorySlider mediaLength={1}>
+          <MediaCard
+            className="card-padding"
+            key={latestMovie.id}
+            media={latestMovie}
+            path={`/movie/${latestMovie.id}`}
+          />
         </MediaCategorySlider>
       </MediaCategory>
     </>

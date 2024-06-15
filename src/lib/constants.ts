@@ -17,6 +17,7 @@ export enum MoviesUrl {
   Upcoming = "https://api.themoviedb.org/3/movie/upcoming",
   Origin = "https://api.themoviedb.org/3/movie/",
   Playing = "https://api.themoviedb.org/3/movie/now_playing",
+  Latest = "https://api.themoviedb.org/3/movie/latest",
 }
 
 export enum PeopleUrl {

@@ -27,6 +27,8 @@ const MoviesPageDataFetch = async () => {
   const { results: topRatedMovies } = (await getMedia(
     MoviesUrl.TopRated + "?language=en-US&page=1"
   )) as TMediaResponse<TMovie>;
+  const latestMovie = (await getMedia(MoviesUrl.Latest)) as TMovie;
+
   return (
     <MoviesPage
       popularMovies={popularMovies}
@@ -34,6 +36,7 @@ const MoviesPageDataFetch = async () => {
       trendingDailyMovies={trendingDailyMovies}
       topRatedMovies={topRatedMovies}
       upcomingMovies={upcomingMovies}
+      latestMovie={latestMovie}
     />
   );
 };
