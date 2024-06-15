@@ -26,15 +26,15 @@ const ProfileDetailSection = ({
               <h2 className="text-2xl md:text-3xl font-bold  font-serif">
                 {heading}
               </h2>
-              {(crew.length || cast.length) > 9 && (
+              {(cast.length > 9 || crew.length > 9) && (
                 <ViewMoreBtn path={`/people/${personId}/${path}/credits`} />
               )}
             </div>
             {cast.length > 0 && (
-              <ProfileCreditList mediaList={cast.slice(0, 12)} title="Cast" />
+              <ProfileCreditList mediaList={cast} title="Cast" />
             )}
             {crew.length > 0 && (
-              <ProfileCreditList mediaList={crew.slice(0, 12)} title="Crew" />
+              <ProfileCreditList mediaList={crew} title="Crew" />
             )}
           </section>
         </>
