@@ -58,7 +58,7 @@ const ViewVideos = ({
                   />
                 ))}
                 {videoData?.length === 0 && (
-                  <p>😢 Sorry, no clips available at the moment</p>
+                  <p className="text-red-500">😢 Sorry, no clips available at the moment</p>
                 )}
               </ModalBody>
               <ModalFooter>
