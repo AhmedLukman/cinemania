@@ -62,6 +62,13 @@ const ViewImages = <T extends TCollectionImageResponse | TImageResponse>({
                         heading="Posters"
                       />
                     )}
+                    {"logos" in imageData && imageData.logos.length > 0 && (
+                      <ImageModalSection
+                        images={imageData.logos}
+                        title={title}
+                        heading="Logos"
+                      />
+                    )}
                   </>
                 )}
                 {!imageData && (
