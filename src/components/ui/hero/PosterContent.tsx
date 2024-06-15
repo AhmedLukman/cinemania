@@ -1,11 +1,10 @@
 import React from "react";
-
-import MediaActions from "./MediaActions";
 import { cn } from "@nextui-org/react";
 import { TSingleTVSeasonResponse, TMovie, TTVShow } from "@/lib/types";
 import { MediaType } from "@/lib/constants";
 import MediaInfo from "./MediaInfo";
 import { getMediaTitle } from "@/lib/utils";
+import MoreDetailsButton from "./MoreDetailsButton";
 
 const PosterContent = ({
   media,
@@ -42,9 +41,9 @@ const PosterContent = ({
           {media.overview || "Overview text unavaible"}
         </p>
       </div>
-      <MediaActions
-        media={media}
-      />
+      <div className="mt-5">
+        <MoreDetailsButton id={media.id} />
+      </div>
     </div>
   );
 };
