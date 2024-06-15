@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -71,8 +71,11 @@ const ViewImages = <T extends TCollectionImageResponse | TImageResponse>({
                     )}
                   </>
                 )}
-                {!imageData && (
-                  <p>😢 Sorry, no images available at the moment</p>
+                {(!(imageData.backdrops.length > 0) ||
+                  !(imageData.posters.length > 0)) && (
+                  <p className="text-red-500">
+                    😢 Sorry, no images available at the moment
+                  </p>
                 )}
                 {/*
                 {error && (
