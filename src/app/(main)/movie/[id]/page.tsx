@@ -37,8 +37,10 @@ const MovieDetailsFetchPage = async ({
   const movie = (await getMedia(
     MoviesUrl.Origin + id.toString() + "?language=en-US"
   )) as TMovieDetailsResponse;
-
+  
   if (!movie?.overview) notFound();
+
+  movie.images = await getMedia(MoviesUrl.Origin + id + "/images");
 
   const credits = (await getMedia(
     MoviesUrl.Origin + id + "/credits?language=en-US"
@@ -47,7 +49,7 @@ const MovieDetailsFetchPage = async ({
   const { results: similarMovies } = (await getMedia(
     MoviesUrl.Origin + id + "/similar?language=en-US&page=1"
   )) as TMediaResponse<TMovie>;
-
+  
   const { results: recommendedMovies } = (await getMedia(
     MoviesUrl.Origin + id + "/recommendations?language=en-US&page=1"
   )) as TMediaResponse<TMovie>;
@@ -69,8 +71,7 @@ const MovieDetailsFetchPage = async ({
       collection.images = await getMedia(
         MediaUrl + "collection/" + collection.id + "/images"
       );
-    }
-
+    } 
   return (
     <MovieDetailsPage
       movie={movie}
