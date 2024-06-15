@@ -10,7 +10,7 @@ import {
   TMediaCreditsResponse,
   TMovie,
   TMovieDetailsResponse,
-  TMediaLinks,
+  TMediaLinks
 } from "@/lib/types";
 import { getImageUrl } from "@/lib/utils";
 
@@ -20,7 +20,7 @@ const MovieDetailsPage = ({
   similarMovies,
   recommendedMovies,
   collection,
-  movieLinks
+  movieLinks,
 }: {
   movie: TMovieDetailsResponse;
   credits: TMediaCreditsResponse;
@@ -53,7 +53,11 @@ const MovieDetailsPage = ({
         >
           <div className="absolute inset-0 bg-black bg-opacity-60" />
           <div className="relative z-10">
-            <MediaCategory media={collection.parts} heading={collection.name}>
+            <MediaCategory
+              collectionImages={collection.images}
+              media={collection.parts}
+              heading={collection.name}
+            >
               {collection.overview && (
                 <p className="mb-14 -mt-3 md:-mt-6 px-5 md:px-20 text-gray-300">
                   {collection.overview}

@@ -65,6 +65,12 @@ const MovieDetailsFetchPage = async ({
         "?language=en-US"
     )) as Collection);
 
+    if (collection) {
+      collection.images = await getMedia(
+        MediaUrl + "collection/" + collection.id + "/images"
+      );
+    }
+
   return (
     <MovieDetailsPage
       movie={movie}

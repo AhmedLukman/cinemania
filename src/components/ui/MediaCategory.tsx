@@ -1,25 +1,31 @@
 import React, { PropsWithChildren } from "react";
-import { TMediaCategoryArray } from "@/lib/types";
+import { TCollectionImageResponse, TMediaCategoryArray } from "@/lib/types";
 import ViewMoreBtn from "./ViewMoreBtn";
+import ViewImages from "./ViewImages";
 
 const MediaCategory = ({
   media,
   children,
   heading,
   path,
+  collectionImages,
 }: {
   media: TMediaCategoryArray;
   heading: string;
   path?: string;
+  collectionImages?: TCollectionImageResponse;
 } & PropsWithChildren) => {
   return (
     <section>
-      <div className="flex p-5 md:py-10 md:px-20 justify-between">
+      <div className="flex p-5 md:py-10 md:px-20 justify-between items-center">
         <h3 className="text-white z-10 text-2xl md:text-3xl font-serif font-bold">
           {heading}
         </h3>
         {/* Assuming one page returned has 20 media objects */}
         {media.length >= 20 && path && <ViewMoreBtn path={path} />}
+        {collectionImages && (
+          <ViewImages imageData={collectionImages} title={heading} />
+        )}
       </div>
       {media.length !== 0 && children}
       {media.length === 0 && (
