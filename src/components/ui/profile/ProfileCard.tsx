@@ -42,7 +42,7 @@ const ProfileCard = ({
 }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
-    <Card shadow="sm" className={cn("bg-white", className)}>
+    <Card  className={cn("bg-white shadow-xl shadow-gray-600", className)}>
       <CardBody className="overflow-visible p-0">
         <Image
           shadow="sm"
