@@ -10,6 +10,7 @@ import { MediaType } from "@/lib/constants";
 import MediaInfo from "./MediaInfo";
 import { getMediaTitle } from "@/lib/utils";
 import MediaCredits from "./MediaCredits";
+import ViewImages from "../ViewImages";
 
 const DetailsPosterContent = ({
   media,
@@ -45,10 +46,8 @@ const DetailsPosterContent = ({
       >
         {media.overview}
       </p>
-      <MediaActions
-        mediaId={media.id}
-        title={getMediaTitle(media)}
-      />
+      <MediaActions media={media} />
+      {/* <ViewImages imageData={media.images} title={getMediaTitle(media)} /> */}
       {type === MediaType.MovieDetails && (
         <MediaCredits
           mediaLinks={mediaLinks}
@@ -58,7 +57,12 @@ const DetailsPosterContent = ({
         />
       )}
       {type === MediaType.TVDetails && (
-        <MediaCredits mediaLinks={mediaLinks} credits={credits} media={media} type={type} />
+        <MediaCredits
+          mediaLinks={mediaLinks}
+          credits={credits}
+          media={media}
+          type={type}
+        />
       )}
     </div>
   );

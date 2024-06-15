@@ -43,8 +43,7 @@ const PosterContent = ({
         </p>
       </div>
       <MediaActions
-        mediaId={media.id}
-        title={getMediaTitle(media)}
+        media={media}
       />
     </div>
   );
