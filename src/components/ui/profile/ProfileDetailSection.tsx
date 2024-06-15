@@ -2,7 +2,7 @@ import { TMovie, TTVShow } from "@/lib/types";
 import { Divider } from "@nextui-org/react";
 import React from "react";
 import ProfileCreditList from "./ProfileCreditList";
-import ViewMoreBtn from "./ViewMoreBtn";
+import ViewMoreBtn from "../ViewMoreBtn";
 
 const ProfileDetailSection = ({
   cast,

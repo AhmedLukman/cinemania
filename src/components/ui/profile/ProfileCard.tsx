@@ -20,7 +20,7 @@ import {
 } from "@nextui-org/react";
 import { getImageUrl } from "@/lib/utils";
 import { TPersonImageResponse, TPersonLink } from "@/lib/types";
-import { SocialLink } from "./SocialLink";
+import { SocialLink } from "../SocialLink";
 import PersonImageModal from "./PersonImageModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-solid-svg-icons";

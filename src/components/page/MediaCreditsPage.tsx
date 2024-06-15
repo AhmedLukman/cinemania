@@ -9,7 +9,7 @@ import {
   TPersonMediaCredits,
   TTVShow,
 } from "@/lib/types";
-import ProfileCard from "../ui/ProfileCard";
+import ProfileCard from "../ui/profile/ProfileCard";
 import MediaGrid from "../ui/MediaGrid";
 import { Divider } from "@nextui-org/react";
 import PaginationScrollUI from "../ui/PaginationScrollUI";

@@ -7,8 +7,8 @@ import {
   TTVShow,
   TPersonImageResponse,
 } from "@/lib/types";
-import ProfileCard from "../ui/ProfileCard";
-import ProfileDetails from "../ui/ProfileDetails";
+import ProfileCard from "../ui/profile/ProfileCard";
+import ProfileDetails from "../ui/profile/ProfileDetails";
 
 const PeopleDetailsPage = ({
   personDetails,

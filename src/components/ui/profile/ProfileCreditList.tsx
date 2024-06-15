@@ -1,7 +1,7 @@
-import React from 'react'
-import MediaCard from "./MediaCard";
-import { ScrollShadow } from '@nextui-org/react';
-import { TMovie, TTVShow } from '@/lib/types';
+import React from "react";
+import MediaCard from "../MediaCard";
+import { ScrollShadow } from "@nextui-org/react";
+import { TMovie, TTVShow } from "@/lib/types";
 
 const ProfileCreditList = ({
   title,
@@ -29,4 +29,4 @@ const ProfileCreditList = ({
   );
 };
 
-export default ProfileCreditList
+export default ProfileCreditList;
