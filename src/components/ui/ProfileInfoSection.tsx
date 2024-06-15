@@ -1,3 +1,4 @@
+import { DATE_OPTIONS } from "@/lib/constants";
 import { TPersonDetails } from "@/lib/types";
 import { getAge, getGender } from "@/lib/utils";
 import { Divider } from "@nextui-org/react";
@@ -15,8 +16,17 @@ const ProfileInfoSection = ({
     gender,
     place_of_birth,
     popularity,
-    known_for_department
+    known_for_department,
   } = personalDetails;
+
+  const formatedBirthday = new Date(birthday).toLocaleDateString(
+    undefined,
+    DATE_OPTIONS
+  );
+  const formatedDeathday = new Date(deathday).toLocaleDateString(
+    undefined,
+    DATE_OPTIONS
+  );
 
   return (
     <>
@@ -32,21 +42,19 @@ const ProfileInfoSection = ({
         </p>
         <p className="my-2">
           <span>Known for: </span>
-          <span className="text-gray-300">
-            {known_for_department || "-"}
-          </span>
+          <span className="text-gray-300">{known_for_department || "-"}</span>
         </p>
         <p className="my-2">
           <span>Birthday: </span>
           <time className="text-gray-300" dateTime={birthday}>
-            {birthday || "-"}
+            {formatedBirthday || "-"}
           </time>
         </p>
         {deathday && (
           <p className="my-2">
             <span>Deathday: </span>
             <time className="text-gray-300" dateTime={deathday}>
-              {deathday}
+              {formatedDeathday}
             </time>
           </p>
         )}

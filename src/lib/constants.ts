@@ -143,7 +143,7 @@ export enum MediaType {
   MovieDetails,
   TVDetails,
   Season,
-  Episode
+  Episode,
 }
 
 export enum CategoryType {
@@ -159,3 +159,9 @@ export enum CategoryType {
   Recommended,
   TopRated,
 }
+
+export const DATE_OPTIONS: Intl.DateTimeFormatOptions = {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
