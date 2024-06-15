@@ -32,7 +32,8 @@ export type Collection = {
   poster_path: string;
   backdrop_path: string;
   parts: TMovie[];
-}
+  images: TCollectionImageResponse;
+};
 
 export type TMediaResponse<T> = {
   page: number;
@@ -472,3 +473,5 @@ export type TMediaLinks = {
   instagram_id: string;
   twitter_id: string;
 };
+
+export type TCollectionImageResponse = Omit<TImageResponse, "logos">;
