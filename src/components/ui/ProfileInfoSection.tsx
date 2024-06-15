@@ -15,6 +15,7 @@ const ProfileInfoSection = ({
     gender,
     place_of_birth,
     popularity,
+    known_for_department
   } = personalDetails;
 
   return (
@@ -27,6 +28,12 @@ const ProfileInfoSection = ({
           Age:{" "}
           <span className="text-gray-300">
             {birthday ? getAge(birthday) : "-"}
+          </span>
+        </p>
+        <p className="my-2">
+          <span>Known for: </span>
+          <span className="text-gray-300">
+            {known_for_department || "-"}
           </span>
         </p>
         <p className="my-2">
