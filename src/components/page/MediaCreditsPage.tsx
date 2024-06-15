@@ -13,8 +13,8 @@ import ProfileCard from "../ui/ProfileCard";
 import MediaGrid from "../ui/MediaGrid";
 import { Divider } from "@nextui-org/react";
 import PaginationScrollUI from "../ui/PaginationScrollUI";
-import { useClientSidePagination } from "@/hooks/useClientSidePagination";
 import { useScrollIntoView } from "@/hooks/useScrollIntoView";
+import { useClientSidePagination } from "@/hooks/useClientSidePagination";
 
 const MediaCreditsPage = ({
   personDetails,
