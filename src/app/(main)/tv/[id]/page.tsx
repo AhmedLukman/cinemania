@@ -22,6 +22,8 @@ const TVShowDetailsFetchPage = async ({
 
   if (!tvShow?.overview) return notFound();
 
+  tvShow.images = await getMedia(TVShowsUrl.Origin + id + "/images");
+
   const credits = (await getMedia(
     TVShowsUrl.Origin + id + "/credits?language=en-US"
   )) as TMediaCreditsResponse;
@@ -34,9 +36,9 @@ const TVShowDetailsFetchPage = async ({
     TVShowsUrl.Origin + id + "/recommendations?language=en-US&page=1"
   )) as TMediaResponse<TTVShow>;
 
-    const tvLinks = (await getMedia(
-      TVShowsUrl.Origin + id + "/external_ids"
-    )) as TMediaLinks;
+  const tvLinks = (await getMedia(
+    TVShowsUrl.Origin + id + "/external_ids"
+  )) as TMediaLinks;
 
   return (
     <TVShowDetailsPage
