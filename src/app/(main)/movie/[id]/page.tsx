@@ -42,6 +42,8 @@ const MovieDetailsFetchPage = async ({
 
   movie.images = await getMedia(MoviesUrl.Origin + id + "/images");
 
+  movie.videos = await getMedia(MoviesUrl.Origin + id + "/videos");
+
   const credits = (await getMedia(
     MoviesUrl.Origin + id + "/credits?language=en-US"
   )) as TMediaCreditsResponse;

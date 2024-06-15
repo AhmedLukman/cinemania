@@ -147,6 +147,7 @@ export type TTVShowDetailsResponse = TMediaBase & {
   tagline: string;
   type: string;
   images: TImageResponse;
+  videos: TVideoResponse;
 };
 
 export type TMovieDetailsResponse = TMediaBase & {
@@ -171,6 +172,7 @@ export type TMovieDetailsResponse = TMediaBase & {
   tagline: string;
   title: string;
   images: TImageResponse;
+  videos: TVideoResponse;
 };
 
 export type TPerson = {
