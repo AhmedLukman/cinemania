@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 import { getMedia } from "@/lib/utils";
 import { MoviesUrl, TVShowsUrl } from "@/lib/constants";
 import { TImageResponse } from "@/lib/types";
-import ImageModalSection from "./ImageModalSection";
+import ImageModalSection from "../ImageModalSection";
 
 const ImageModal = ({
   isOpen,

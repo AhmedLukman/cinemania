@@ -12,7 +12,7 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import React from "react";
-import ImageModalSection from "./hero/ImageModalSection";
+import ImageModalSection from "./ImageModalSection";
 import { TCollectionImageResponse, TImageResponse } from "@/lib/types";
 
 const ViewImages = <T extends TCollectionImageResponse | TImageResponse>({
