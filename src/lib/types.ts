@@ -155,7 +155,7 @@ export type TMovieDetailsResponse = TMediaBase & {
     id: number;
     name: string;
     poster_path: string;
-    backdrop_path: string
+    backdrop_path: string;
   };
   budget: number;
   homepage: string;
@@ -200,14 +200,14 @@ export type TPersonDetails = {
   place_of_birth: string;
   popularity: number;
   profile_path: string;
-  known_for_department: string
+  known_for_department: string;
 };
 
 export type TPersonMediaCredits<T> = {
   cast: T[];
   crew: T[];
-  id: number
-}
+  id: number;
+};
 
 export type KnownFor = {
   adult: boolean;
@@ -279,13 +279,13 @@ export type TMedia =
   | Episode[]
   | Network[];
 
-  export type TMediaGrid =
-    | TCast[]
-    | TCrew[]
-    | TMovie[]
-    | TTVShow[]
-    | TPeople[]
-    | Episode[];
+export type TMediaGrid =
+  | TCast[]
+  | TCrew[]
+  | TMovie[]
+  | TTVShow[]
+  | TPeople[]
+  | Episode[];
 
 export type TMediaCard =
   | TMovie
@@ -479,3 +479,14 @@ export type TMediaLinks = {
 };
 
 export type TCollectionImageResponse = Omit<TImageResponse, "logos">;
+
+export type TCompanyDetails = {
+  description: string;
+  headquarters: string;
+  homepage: string;
+  id: number;
+  logo_path: string;
+  name: string;
+  origin_country: string;
+  parent_company: string;
+};
