@@ -3,7 +3,7 @@
 import { TMediaResponse, TMovie } from "@/lib/types";
 import React from "react";
 import MediaGrid from "../ui/MediaGrid";
-import PaginationScrollUI from "../ui/PaginationScrollUI";
+import PaginationUI from "../ui/PaginationUI";
 import { CircularProgress } from "@nextui-org/react";
 import useServerSidePagination from "@/hooks/useServerSidePagination";
 import { useScrollIntoView } from "@/hooks/useScrollIntoView";
@@ -53,7 +53,7 @@ const SuggestionMoviePage = ({
       )}
       {!isLoading && <MediaGrid path="movie" media={updatedMovies} />}
       <div className="flex mt-10 justify-center items-center">
-        <PaginationScrollUI
+        <PaginationUI
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           totalPages={movies.total_pages}

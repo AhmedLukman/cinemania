@@ -2,7 +2,7 @@
 
 import CategoryPageHeading from "@/components/ui/CategoryPageHeading";
 import MediaGrid from "@/components/ui/MediaGrid";
-import PaginationScrollUI from "@/components/ui/PaginationScrollUI";
+import PaginationUI from "@/components/ui/PaginationUI";
 import { MoviesUrl } from "@/lib/constants";
 import { TMediaResponse, TMovie } from "@/lib/types";
 import { getMedia } from "@/lib/utils";
@@ -88,7 +88,7 @@ const MovieCategoryPage = ({
       )}
       {!isLoading && <MediaGrid path="movie" media={movies} />}
       <div className="flex mt-10 justify-center items-center">
-        <PaginationScrollUI
+        <PaginationUI
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           totalPages={totalPages}

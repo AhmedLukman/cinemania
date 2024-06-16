@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import {
   TPersonLink,
   TMovie,
@@ -12,7 +12,7 @@ import {
 import ProfileCard from "../ui/profile/ProfileCard";
 import MediaGrid from "../ui/MediaGrid";
 import { Divider } from "@nextui-org/react";
-import PaginationScrollUI from "../ui/PaginationScrollUI";
+import PaginationUI from "../ui/PaginationUI";
 import { useScrollIntoView } from "@/hooks/useScrollIntoView";
 import { useClientSidePagination } from "@/hooks/useClientSidePagination";
 
@@ -79,7 +79,7 @@ const MediaCreditsPage = ({
           </h2>
           <MediaGrid path={title.toLowerCase()} media={castPagedItems} />
           <div className="flex mt-10 justify-center items-center">
-            <PaginationScrollUI
+            <PaginationUI
               currentPage={currentCastPage}
               setCurrentPage={setCurrentCastPage}
               totalPages={totalCastPages}
@@ -100,8 +100,7 @@ const MediaCreditsPage = ({
           </h2>
           <MediaGrid path={title.toLowerCase()} media={crewPagedItems} />
           <div className="flex mt-10 justify-center items-center">
-            <PaginationScrollUI
-              renderScrollToTop={false}
+            <PaginationUI
               currentPage={currentCrewPage}
               setCurrentPage={setCurrentCrewPage}
               totalPages={totalCrewPages}

@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 import CategoryPageHeading from "../ui/CategoryPageHeading";
 import MediaGrid from "../ui/MediaGrid";
 import { CircularProgress } from "@nextui-org/react";
-import PaginationScrollUI from "../ui/PaginationScrollUI";
+import PaginationUI from "../ui/PaginationUI";
 
 const TVCategoryPage = ({
   tvResponse: { page, results, total_pages },
@@ -89,7 +89,7 @@ const TVCategoryPage = ({
       )}
       {!isLoading && <MediaGrid path="movie" media={tvShows} />}
       <div className="flex mt-10 justify-center items-center">
-        <PaginationScrollUI
+        <PaginationUI
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           totalPages={totalPages}
