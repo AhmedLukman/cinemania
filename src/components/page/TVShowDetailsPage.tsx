@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import { dataUrl, getImageUrl } from "@/lib/utils";
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
+import ScrollToTopUI from "../ui/ScrollToTop";
 
 const TVShowDetailsPage = ({
   tvShow,
@@ -142,6 +143,8 @@ const TVShowDetailsPage = ({
           ))}
         </MediaCategorySlider>
       </MediaCategory>
+
+      <ScrollToTopUI />
     </>
   );
 };
