@@ -38,52 +38,63 @@ const MediaCredits = ({
   const director = getDirector(credits);
   return (
     <div className="mt-5 space-y-2 p-6 rounded-lg bg-gradient-to-b from-white/20 via-white/10 to-white/20">
-      {type === MediaType.MovieDetails && (
-        <>
-          <CreditParagraph name="Directed by:" value={director?.name || ""} />
+      <div className="flex gap-2 flex-col md:flex-row md:gap-5">
+        <div className="space-y-2 md:w-1/2">
+          {type === MediaType.MovieDetails && (
+            <>
+              <CreditParagraph
+                name="Directed by:"
+                value={director?.name || ""}
+              />
+              <CreditParagraph
+                name="Budget:"
+                value={
+                  (media.budget !== 0 && media.budget.toLocaleString()) || "-"
+                }
+              />
+              <CreditParagraph
+                name="Revenue:"
+                value={
+                  (media.revenue !== 0 && media.revenue.toLocaleString()) || "-"
+                }
+              />
+            </>
+          )}
+          {type === MediaType.TVDetails && (
+            <>
+              <CreditParagraph
+                name="Seasons:"
+                value={media.number_of_seasons.toString()}
+              />
+              <CreditParagraph
+                name="Episodes:"
+                value={media.number_of_episodes.toString()}
+              />
+              <CreditParagraph name="Status:" value={media.status} />
+            </>
+          )}
           <CreditParagraph
-            name="Budget:"
-            value={(media.budget !== 0 && media.budget.toLocaleString()) || "-"}
+            name="Production Countries:"
+            value={media.production_countries}
           />
           <CreditParagraph
-            name="Revenue:"
-            value={
-              (media.revenue !== 0 && media.revenue.toLocaleString()) || "-"
-            }
+            name="Spoken languages:"
+            value={media.spoken_languages}
           />
-        </>
-      )}
-      {type === MediaType.TVDetails && (
-        <>
-          <CreditParagraph
-            name="Seasons:"
-            value={media.number_of_seasons.toString()}
-          />
-          <CreditParagraph
-            name="Episodes:"
-            value={media.number_of_episodes.toString()}
-          />
-          <CreditParagraph name="Status:" value={media.status} />
-        </>
-      )}
-      <p className="text-[#cecece] text-sm">Production Companies:</p>
-      <ScrollShadow
-        orientation="horizontal"
-        className="flex gap-5 rounded-xl  "
-        hideScrollBar
-      >
-        {media.production_companies.map((company) => (
-          <CompanyCard key={company.id} company={company} />
-        ))}
-      </ScrollShadow>
-      <CreditParagraph
-        name="Production Countries:"
-        value={media.production_countries}
-      />
-      <CreditParagraph
-        name="Spoken languages:"
-        value={media.spoken_languages}
-      />
+        </div>
+        <div className="space-y-2 md:w-1/2">
+          <p className="text-[#cecece] text-sm">Production Companies:</p>
+          <ScrollShadow
+            orientation="horizontal"
+            className="flex gap-5 rounded-xl overflow-x-auto "
+            hideScrollBar
+          >
+            {media.production_companies.map((company) => (
+              <CompanyCard key={company.id} company={company} />
+            ))}
+          </ScrollShadow>
+        </div>
+      </div>
       <CreditParagraph tagline={media.tagline} />
       <div className="flex justify-center gap-4 pt-2">
         <SocialLink
@@ -203,7 +214,11 @@ export default MediaCredits;
 //             <Image
 //               alt=""
 //               className="object-cover w-[150px]  p-2 hover:cursor-pointer"
-//               src={getImageUrl(company.logo_path)}
+//               src={
+//                 company.logo_path
+//                   ? getImageUrl(company.logo_path)
+//                   : "/assets/images/avatar.jpeg"
+//               }
 //             />
 //           </Tooltip>
 //         ))}
