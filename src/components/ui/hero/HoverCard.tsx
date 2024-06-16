@@ -13,18 +13,80 @@ export const HoverCard = ({
   childrenClassName,
   imageClassName,
   className,
+  isActive,
 }: {
   imageUrl: string;
   children: React.ReactNode | string;
   childrenClassName?: string;
   imageClassName?: string;
   className?: string;
+  isActive?: boolean;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const [direction, setDirection] = useState<
+  const [hoverDirection, setHoverDirection] = useState<
     "top" | "bottom" | "left" | "right" | string
-  >("left");
+  >("right");
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  const variants = {
+    initial: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+    },
+    exit: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+    },
+    top: {
+      y: -20,
+      opacity: 1,
+    },
+    bottom: {
+      y: 20,
+      opacity: 1,
+    },
+    left: {
+      x: -20,
+      opacity: 1,
+    },
+    right: {
+      x: 20,
+      opacity: 1,
+    },
+  };
+
+  const textVariants = {
+    initial: {
+      y: 0,
+      x: 0,
+      opacity: 0,
+    },
+    exit: {
+      y: 0,
+      x: 0,
+      opacity: 0,
+    },
+    top: {
+      y: -20,
+      opacity: 1,
+    },
+    bottom: {
+      y: 20,
+      opacity: 1,
+    },
+    left: {
+      x: -20,
+      opacity: 1,
+    },
+    right: {
+      x: 20,
+      opacity: 1,
+    },
+  };
 
   const handleMouseEnter = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -32,23 +94,12 @@ export const HoverCard = ({
     if (!ref.current) return;
 
     const direction = getDirection(event, ref.current);
-    switch (direction) {
-      case 0:
-        setDirection("top");
-        break;
-      case 1:
-        setDirection("right");
-        break;
-      case 2:
-        setDirection("bottom");
-        break;
-      case 3:
-        setDirection("left");
-        break;
-      default:
-        setDirection("left");
-        break;
-    }
+    setHoverDirection(direction);
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
   };
 
   const getDirection = (
@@ -59,12 +110,24 @@ export const HoverCard = ({
     const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1);
     const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1);
     const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
-    return d;
+    switch (d) {
+      case 0:
+        return "top";
+      case 1:
+        return "right";
+      case 2:
+        return "top";
+      case 3:
+        return "right";
+      default:
+        return "right";
+    }
   };
 
   return (
     <motion.div
-      onMouseEnter={handleMouseEnter}
+      onMouseEnter={!isActive ? handleMouseEnter: () => {}}
+      onMouseLeave={!isActive ? handleMouseLeave: () => {}}
       ref={ref}
       className={cn(
         "md:h-96 w-60 h-60 md:w-96 bg-transparent rounded-lg overflow-hidden group/card relative",
@@ -75,10 +138,15 @@ export const HoverCard = ({
         <motion.div
           className="relative h-full w-full"
           initial="initial"
-          whileHover={direction}
+          animate={isActive || isHovered ? hoverDirection : "initial"}
           exit="exit"
         >
-          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
+          <motion.div
+            className={cn(
+              "absolute inset-0 w-full h-full z-10 transition bg-black/40 group-hover/card:block hidden duration-500",
+              isActive || isHovered ? " block" : ""
+            )}
+          />
           <motion.div
             variants={variants}
             className="h-full w-full relative bg-gray-50 dark:bg-black"
@@ -109,6 +177,7 @@ export const HoverCard = ({
               "text-white absolute bottom-4 left-4 z-40",
               childrenClassName
             )}
+            animate={isActive || isHovered ? hoverDirection : "initial"}
           >
             {children}
           </motion.div>
@@ -116,56 +185,4 @@ export const HoverCard = ({
       </AnimatePresence>
     </motion.div>
   );
-};
-
-const variants = {
-  initial: {
-    x: 0,
-  },
-
-  exit: {
-    x: 0,
-    y: 0,
-  },
-  top: {
-    y: 20,
-  },
-  bottom: {
-    y: -20,
-  },
-  left: {
-    x: 20,
-  },
-  right: {
-    x: -20,
-  },
-};
-
-const textVariants = {
-  initial: {
-    y: 0,
-    x: 0,
-    opacity: 0,
-  },
-  exit: {
-    y: 0,
-    x: 0,
-    opacity: 0,
-  },
-  top: {
-    y: -20,
-    opacity: 1,
-  },
-  bottom: {
-    y: 2,
-    opacity: 1,
-  },
-  left: {
-    x: -2,
-    opacity: 1,
-  },
-  right: {
-    x: 20,
-    opacity: 1,
-  },
 };
