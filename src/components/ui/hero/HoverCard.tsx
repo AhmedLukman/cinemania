@@ -131,7 +131,8 @@ export const HoverCard = ({
       ref={ref}
       className={cn(
         "md:h-96 w-60 h-60 md:w-96 bg-transparent rounded-lg overflow-hidden group/card relative",
-        className
+        className,
+        { "cursor-default": isActive}
       )}
     >
       <AnimatePresence mode="wait">
