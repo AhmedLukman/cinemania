@@ -21,7 +21,7 @@ const CompanyCard = async ({
         as={Link}
         isExternal
         href={companyDetails.homepage}
-        className="w-36 h-36 flex justify-center items-center"
+        className="w-36 h-36 flex flex-shrink-0 justify-center items-center"
       >
         <Image
           fill
