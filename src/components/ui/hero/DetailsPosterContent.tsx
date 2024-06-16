@@ -11,6 +11,7 @@ import MediaInfo from "./MediaInfo";
 import { getMediaTitle } from "@/lib/utils";
 import MediaCredits from "./MediaCredits";
 import ViewImages from "../ViewImages";
+import { cn } from "@nextui-org/react";
 
 const DetailsPosterContent = ({
   media,
@@ -40,9 +41,7 @@ const DetailsPosterContent = ({
       )}
       {type === MediaType.TVDetails && <MediaInfo media={media} type={type} />}
       <p
-        className={`max-w-prose mt-10 ${
-          "revenue" in media ? "" : "line-clamp-3"
-        }`}
+        className="max-w-prose mt-10"
       >
         {media.overview}
       </p>

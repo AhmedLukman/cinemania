@@ -33,11 +33,7 @@ const PosterContent = ({
         </div>
       )}
       <div className="min-h-20">
-        <p
-          className={cn("max-w-prose mt-10 line-clamp-3", {
-            "line-clamp-none": "revenue" in media || "season" in media,
-          })}
-        >
+        <p className="max-w-prose mt-10 line-clamp-3">
           {media.overview || "Overview text unavaible"}
         </p>
       </div>
