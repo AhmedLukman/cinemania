@@ -13,8 +13,6 @@ import {
   TMediaLinks,
 } from "@/lib/types";
 import { getImageUrl } from "@/lib/utils";
-import ScrollToTop from "react-scroll-to-top";
-import ScrollToTopUI from "../ui/ScrollToTop";
 
 const MovieDetailsPage = ({
   movie,
@@ -147,8 +145,6 @@ const MovieDetailsPage = ({
           ))}
         </MediaCategorySlider>
       </MediaCategory>
-
-      <ScrollToTopUI />
     </>
   );
 };

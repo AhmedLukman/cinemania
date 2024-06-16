@@ -3,9 +3,6 @@
 import React from "react";
 import MiniSlider from "./MiniSlider";
 import BigSlider from "./BigSlider";
-import ScrollToTop from "react-scroll-to-top";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { TMovie, TTVShow } from "@/lib/types";
 import { MediaType } from "@/lib/constants";
 import PosterContent from "../hero/PosterContent";
@@ -19,13 +16,7 @@ const DoubleSlider = ({
   | { type: MediaType.Movie; popularMedia: TMovie[] }
   | { type: MediaType.TV; popularMedia: TTVShow[] }) => {
   const { nav1, nav2, sliderRef1, sliderRef2 } = useDoubleSlider();
-  return (
-    <>
-      <ScrollToTop
-        smooth
-        component={<FontAwesomeIcon icon={faArrowUp} size="lg" />}
-        className="hidden md:flex items-center justify-center !shadow-lg !shadow-slate-400 -mr-4"
-      />
+  return (    
       <section className="slider-container">
         <BigSlider nav2={nav2!} sliderRef1={sliderRef1}>
           {popularMedia?.map((popularMedia) => (
@@ -46,7 +37,6 @@ const DoubleSlider = ({
           sliderRef2={sliderRef2}
         />
       </section>
-    </>
   );
 };
 
