@@ -46,7 +46,6 @@ const DetailsPosterContent = ({
         {media.overview}
       </p>
       <MediaActions media={media} />
-      {/* <ViewImages imageData={media.images} title={getMediaTitle(media)} /> */}
       {type === MediaType.MovieDetails && (
         <MediaCredits
           mediaLinks={mediaLinks}
