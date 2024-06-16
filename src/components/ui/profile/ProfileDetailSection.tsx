@@ -13,9 +13,13 @@ const ProfileDetailSection = ({
   crew: TMovie[] | TTVShow[];
   personId: number;
 }) => {
+  const firstCastOrCrew = cast[0] || crew[0];
   const heading =
-    "original_name" in (cast[0] || crew[0]) ? "TV Credits" : "Movie Credits";
-  const path = "original_name" in (cast[0] || crew[0]) ? "tv" : "movie";
+    firstCastOrCrew && "original_name" in firstCastOrCrew
+      ? "TV Credits"
+      : "Movie Credits";
+  const path =
+    firstCastOrCrew && "original_name" in firstCastOrCrew ? "tv" : "movie";
   return (
     <>
       {(cast.length > 0 || crew.length > 0) && (
