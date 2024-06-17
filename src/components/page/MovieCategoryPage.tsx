@@ -3,6 +3,7 @@
 import CategoryPageHeading from "@/components/ui/CategoryPageHeading";
 import MediaGrid from "@/components/ui/MediaGrid";
 import PaginationUI from "@/components/ui/PaginationUI";
+import { useScrollIntoView } from "@/hooks/useScrollIntoView";
 import { MoviesUrl } from "@/lib/constants";
 import { TMediaResponse, TMovie } from "@/lib/types";
 import { getMedia } from "@/lib/utils";
@@ -21,6 +22,8 @@ const MovieCategoryPage = ({
   const [movies, setMovies] = useState(results);
   const [totalPages, setTotalPages] = useState(total_pages);
   const [currentPage, setCurrentPage] = useState(page);
+
+  const ref = useScrollIntoView({ page: currentPage });
 
   const url =
     id === "trending"
@@ -69,7 +72,7 @@ const MovieCategoryPage = ({
   }, [frequency, results, total_pages, currentPage, url]);
 
   return (
-    <div className="md:p-14 pt-10">
+    <div ref={ref} className="md:p-14 pt-10">
       <CategoryPageHeading
         id={id}
         isLoading={isLoading}

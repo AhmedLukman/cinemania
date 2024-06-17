@@ -3,12 +3,12 @@
 import { TVShowsUrl } from "@/lib/constants";
 import { TMediaResponse, TTVShow } from "@/lib/types";
 import { getMedia } from "@/lib/utils";
-import { notFound } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CategoryPageHeading from "../ui/CategoryPageHeading";
 import MediaGrid from "../ui/MediaGrid";
 import { CircularProgress } from "@nextui-org/react";
 import PaginationUI from "../ui/PaginationUI";
+import { useScrollIntoView } from "@/hooks/useScrollIntoView";
 
 const TVCategoryPage = ({
   tvResponse: { page, results, total_pages },
@@ -33,6 +33,8 @@ const TVCategoryPage = ({
       : id === "airing-today"
       ? TVShowsUrl.AiringToday
       : null;
+
+  const ref = useScrollIntoView({ page: currentPage });
 
   useEffect(() => {
     if (currentPage === page) {
@@ -70,7 +72,7 @@ const TVCategoryPage = ({
   }, [frequency, results, total_pages, currentPage, url]);
 
   return (
-    <div className="md:p-14 pt-10">
+    <div ref={ref} className="md:p-14 pt-10">
       <CategoryPageHeading
         id={id}
         isLoading={isLoading}
