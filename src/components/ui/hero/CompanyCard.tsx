@@ -24,9 +24,10 @@ const CompanyCard = async ({
         className="w-36 h-36 flex flex-shrink-0 justify-center items-center"
       >
         <Image
+          priority
           fill
           alt=""
-          className={cn("object-contain", {
+          className={cn("object-contain invert-0", {
             "p-2": logo_path,
           })}
           placeholder={dataUrl as PlaceholderValue}
