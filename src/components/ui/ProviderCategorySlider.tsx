@@ -15,10 +15,12 @@ const ProviderCategorySlider = ({
 }: {
   providers: TWatchProvidersResponse;
 }) => {
-  const [selectedKey, setSelectedKey] = useState<Set<string>>(new Set(["AD"]));
   const countryCodes = Object.keys(providers.results);
+  const [selectedKey, setSelectedKey] = useState<Set<string>>(new Set([countryCodes[0]]));
   const { link, buy, flatrate, rent } =
-    providers.results[Array.from(selectedKey)[0]];
+    providers.results[Array.from(selectedKey)[0]] ?? {};
+
+  if (!buy  && !flatrate && !rent) return;
   return (
     <section>
       <div className="flex p-5 md:pt-10 md:pb-14 md:px-20 justify-between items-center gap-5 md:gap-0">
@@ -26,12 +28,14 @@ const ProviderCategorySlider = ({
           <h3 className="text-white z-10 text-2xl md:text-3xl font-serif font-bold">
             Watch Providers
           </h3>
-          <Link
-            href={link}
-            isExternal
-            showAnchorIcon
-            className="text-gray-500"
-          />
+          {link && (
+            <Link
+              href={link}
+              isExternal
+              showAnchorIcon
+              className="text-gray-500"
+            />
+          )}
         </div>
         <Select
           aria-label="Select frequency"
@@ -61,79 +65,79 @@ const ProviderCategorySlider = ({
         </Select>
       </div>
 
-      <h4 className="text-white px-5 md:px-20 pb-8 text-xl md:text-2xl font-serif font-bold">
-        Flatrate
-      </h4>
-      {flatrate && flatrate.length > 0 ? (
-        <MediaCategorySlider mediaLength={flatrate.length}>
-          {flatrate.map((provider) => (
-            <div key={provider.provider_id}>
-              <div className=" h-full w-full flex items-center justify-center">
-                <Card className="h-20 w-20">
-                  <Image
-                    unoptimized
-                    placeholder={dataUrl as PlaceholderValue}
-                    fill
-                    alt={provider.provider_name + " logo"}
-                    src={getImageUrl(provider.logo_path, ImageSize.Small)}
-                  />
-                </Card>
+      {flatrate && flatrate.length > 0 && (
+        <>
+          <h4 className="text-white px-5 md:px-20 pb-8 text-xl md:text-2xl font-serif font-bold">
+            Flatrate
+          </h4>
+          <MediaCategorySlider mediaLength={flatrate.length}>
+            {flatrate.map((provider) => (
+              <div key={provider.provider_id}>
+                <div className=" h-full w-full flex items-center justify-center">
+                  <Card className="h-20 w-20">
+                    <Image
+                      unoptimized
+                      placeholder={dataUrl as PlaceholderValue}
+                      fill
+                      alt={provider.provider_name + " logo"}
+                      src={getImageUrl(provider.logo_path, ImageSize.Small)}
+                    />
+                  </Card>
+                </div>
               </div>
-            </div>
-          ))}
-        </MediaCategorySlider>
-      ) : (
-        <p className="text-red-500 px-5 md:px-20 mb-8">No data available</p>
+            ))}
+          </MediaCategorySlider>
+        </>
       )}
 
-      <h4 className="text-white px-5 md:px-20 pb-8 text-xl md:text-2xl font-serif font-bold">
-        Buy
-      </h4>
-      {buy && buy.length > 0 ? (
-        <MediaCategorySlider mediaLength={buy.length}>
-          {buy.map((provider) => (
-            <div key={provider.provider_id}>
-              <div className=" h-full w-full flex items-center justify-center">
-                <Card className="h-20 w-20">
-                  <Image
-                    unoptimized
-                    placeholder={dataUrl as PlaceholderValue}
-                    fill
-                    alt={provider.provider_name + " logo"}
-                    src={getImageUrl(provider.logo_path, ImageSize.Small)}
-                  />
-                </Card>
+      {buy && buy.length > 0 && (
+        <>
+          <h4 className="text-white px-5 md:px-20 pb-8 text-xl md:text-2xl font-serif font-bold">
+            Buy
+          </h4>
+          <MediaCategorySlider mediaLength={buy.length}>
+            {buy.map((provider) => (
+              <div key={provider.provider_id}>
+                <div className=" h-full w-full flex items-center justify-center">
+                  <Card className="h-20 w-20">
+                    <Image
+                      unoptimized
+                      placeholder={dataUrl as PlaceholderValue}
+                      fill
+                      alt={provider.provider_name + " logo"}
+                      src={getImageUrl(provider.logo_path, ImageSize.Small)}
+                    />
+                  </Card>
+                </div>
               </div>
-            </div>
-          ))}
-        </MediaCategorySlider>
-      ) : (
-        <p className="text-red-500 px-5 md:px-20 mb-8">No data available</p>
+            ))}
+          </MediaCategorySlider>
+        </>
       )}
 
-      <h4 className="text-white px-5 md:px-20 pb-8 text-xl md:text-2xl font-serif font-bold">
-        Rent
-      </h4>
-      {rent && rent.length > 0 ? (
-        <MediaCategorySlider mediaLength={rent.length}>
-          {rent.map((provider) => (
-            <div key={provider.provider_id}>
-              <div className=" h-full w-full flex items-center justify-center">
-                <Card className="h-20 w-20">
-                  <Image
-                    unoptimized
-                    placeholder={dataUrl as PlaceholderValue}
-                    fill
-                    alt={provider.provider_name + " logo"}
-                    src={getImageUrl(provider.logo_path, ImageSize.Small)}
-                  />
-                </Card>
+      {rent && rent.length > 0 && (
+        <>
+          <h4 className="text-white px-5 md:px-20 pb-8 text-xl md:text-2xl font-serif font-bold">
+            Rent
+          </h4>
+          <MediaCategorySlider mediaLength={rent.length}>
+            {rent.map((provider) => (
+              <div key={provider.provider_id}>
+                <div className=" h-full w-full flex items-center justify-center">
+                  <Card className="h-20 w-20">
+                    <Image
+                      unoptimized
+                      placeholder={dataUrl as PlaceholderValue}
+                      fill
+                      alt={provider.provider_name + " logo"}
+                      src={getImageUrl(provider.logo_path, ImageSize.Small)}
+                    />
+                  </Card>
+                </div>
               </div>
-            </div>
-          ))}
-        </MediaCategorySlider>
-      ) : (
-        <p className="text-red-500 px-5 md:px-20 mb-8">No data available</p>
+            ))}
+          </MediaCategorySlider>
+        </>
       )}
     </section>
   );
