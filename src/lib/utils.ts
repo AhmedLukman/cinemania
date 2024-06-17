@@ -106,7 +106,7 @@ export const getMediaCategorySliderSettings = (mediaLength: number) => {
     slidesToScroll: mediaLength < 4 ? 1 : 4,
     lazyLoad: "progressive" as LazyLoadTypes,
     arrows: mediaLength > 4 ? true : false,
-    draggable: false,
+    draggable: mediaLength > 4 ? true : false,
     autoplay: true,
     autoplaySpeed: 6000,
     responsive: [
