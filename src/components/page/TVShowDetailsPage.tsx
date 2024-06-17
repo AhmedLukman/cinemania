@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import { dataUrl, getImageUrl } from "@/lib/utils";
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
+import ProviderCategorySlider from "../ui/ProviderCategorySlider";
 
 const TVShowDetailsPage = ({
   tvShow,
@@ -40,6 +41,8 @@ const TVShowDetailsPage = ({
           credits={credits}
         />
       </PosterContainer>
+
+      <ProviderCategorySlider providers={tvShow.watchProviders} />
 
       <MediaCategory media={networks} heading="Network">
         <MediaCategorySlider mediaLength={networks.length}>

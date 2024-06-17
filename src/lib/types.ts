@@ -148,6 +148,7 @@ export type TTVShowDetailsResponse = TMediaBase & {
   type: string;
   images: TImageResponse;
   videos: TVideoResponse;
+  watchProviders: TWatchProvidersResponse;
 };
 
 export type TMovieDetailsResponse = TMediaBase & {

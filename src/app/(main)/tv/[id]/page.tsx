@@ -6,6 +6,7 @@ import {
   TMediaResponse,
   TTVShow,
   TTVShowDetailsResponse,
+  TWatchProvidersResponse,
 } from "@/lib/types";
 import { getMedia } from "@/lib/utils";
 import { notFound } from "next/navigation";
@@ -41,6 +42,12 @@ const TVShowDetailsFetchPage = async ({
   const tvLinks = (await getMedia(
     TVShowsUrl.Origin + id + "/external_ids"
   )) as TMediaLinks;
+
+    const watchProviders = (await getMedia(
+      TVShowsUrl.Origin + id + "/watch/providers"
+    )) as TWatchProvidersResponse;
+
+    tvShow.watchProviders = watchProviders;
 
   return (
     <TVShowDetailsPage
