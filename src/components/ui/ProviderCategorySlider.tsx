@@ -94,7 +94,7 @@ const ProviderCategorySlider = ({
           {buy.map((provider) => (
             <div key={provider.provider_id}>
               <div className=" h-full w-full flex items-center justify-center">
-                <Card as={Link} className="h-20 w-20">
+                <Card className="h-20 w-20">
                   <Image
                     unoptimized
                     placeholder={dataUrl as PlaceholderValue}
@@ -119,7 +119,7 @@ const ProviderCategorySlider = ({
           {rent.map((provider) => (
             <div key={provider.provider_id}>
               <div className=" h-full w-full flex items-center justify-center">
-                <Card as={Link} className="h-20 w-20">
+                <Card className="h-20 w-20">
                   <Image
                     unoptimized
                     placeholder={dataUrl as PlaceholderValue}
