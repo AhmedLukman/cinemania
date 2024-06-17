@@ -19,7 +19,7 @@ const Header = () => {
       className=" fixed w-full flex z-50 bg-transparent"
       maxWidth="xl"
       isMenuOpen={isMenuOpen}
-      shouldHideOnScroll
+      // shouldHideOnScroll
       onMenuOpenChange={setIsMenuOpen}
     >
       <div className="w-full flex items-center gap-4">
