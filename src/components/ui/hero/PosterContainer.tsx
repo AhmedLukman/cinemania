@@ -43,7 +43,7 @@ const PosterContainer = ({
       {/* Backdrop */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black" />
 
-      <div className="h-full z-50 md:gap-5 md:flex px-5 md:px-12 lg:px-20  text-white">
+      <div className="h-full z-50 md:gap-5 lg:flex px-5 md:px-12 lg:px-16 xl:px-20  text-white">
         {children}
         {!("season_number" in media) && (
           <PosterSideImage

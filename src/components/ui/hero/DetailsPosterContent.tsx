@@ -32,7 +32,7 @@ const DetailsPosterContent = ({
       mediaLinks: TMediaLinks;
     }) => {
   return (
-    <div className="md:w-2/3 min-h-[75svh] relative z-10 pt-24 pb-10">
+    <div className="lg:w-2/3 min-h-[75svh] relative z-10 pt-24 pb-10">
       <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold font-serif max-w-3xl">
         {getMediaTitle(media)}
       </h2>
