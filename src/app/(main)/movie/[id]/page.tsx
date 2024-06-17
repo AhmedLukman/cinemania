@@ -7,6 +7,7 @@ import {
   TMovie,
   TMovieDetailsResponse,
   TMediaLinks,
+  TWatchProvidersResponse,
 } from "@/lib/types";
 import { getMedia } from "@/lib/utils";
 import { notFound } from "next/navigation";
@@ -37,7 +38,7 @@ const MovieDetailsFetchPage = async ({
   const movie = (await getMedia(
     MoviesUrl.Origin + id.toString() + "?language=en-US"
   )) as TMovieDetailsResponse;
-  
+
   if (!movie?.overview) notFound();
 
   movie.images = await getMedia(MoviesUrl.Origin + id + "/images");
@@ -51,14 +52,14 @@ const MovieDetailsFetchPage = async ({
   const { results: similarMovies } = (await getMedia(
     MoviesUrl.Origin + id + "/similar?language=en-US&page=1"
   )) as TMediaResponse<TMovie>;
-  
+
   const { results: recommendedMovies } = (await getMedia(
     MoviesUrl.Origin + id + "/recommendations?language=en-US&page=1"
   )) as TMediaResponse<TMovie>;
 
-  const movieLinks = await getMedia(
+  const movieLinks = (await getMedia(
     MoviesUrl.Origin + id + "/external_ids"
-  ) as TMediaLinks;
+  )) as TMediaLinks;
 
   const collection =
     movie.belongs_to_collection &&
@@ -69,11 +70,18 @@ const MovieDetailsFetchPage = async ({
         "?language=en-US"
     )) as Collection);
 
-    if (collection) {
-      collection.images = await getMedia(
-        MediaUrl + "collection/" + collection.id + "/images"
-      );
-    } 
+  if (collection) {
+    collection.images = await getMedia(
+      MediaUrl + "collection/" + collection.id + "/images"
+    );
+  }
+
+  const watchProviders = (await getMedia(
+    MoviesUrl.Origin + id + "/watch/providers"
+  )) as TWatchProvidersResponse;
+
+  movie.watchProviders = watchProviders;
+
   return (
     <MovieDetailsPage
       movie={movie}
