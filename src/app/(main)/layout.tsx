@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 const MainLayout = ({ children }: PropsWithChildren) => {
   return (
-    <div className="flex flex-col justify-between min-h-[100svh]">
+    <div className="flex relative flex-col justify-between min-h-[100svh]">
       <Header />
-      <main className="flex-grow">{children}</main>
+      <main>{children}</main>
       <Footer />
       <ScrollToTopUI />
     </div>
