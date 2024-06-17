@@ -86,8 +86,7 @@ const MediaCredits = ({
           <p className="text-[#cecece] text-sm">Production Companies:</p>
           <ScrollShadow
             orientation="horizontal"
-            className="flex gap-5 rounded-xl overflow-x-auto "
-            hideScrollBar
+            className="scroll-shadow-container flex gap-5 rounded-xl overflow-x-auto pb-2"
           >
             {media.production_companies.map((company) => (
               <CompanyCard key={company.id} company={company} />

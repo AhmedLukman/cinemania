@@ -29,3 +29,12 @@
 .card-padding {
   @apply px-2 md:px-4
 }
+
+/* Define custom scrollbar styles */
+.scroll-shadow-container::-webkit-scrollbar {
+  height: 6px; /* Set the height of the scrollbar */
+}
+
+.scroll-shadow-container::-webkit-scrollbar-track {
+  background: transparent; /* Background of the scrollbar track */
+}
