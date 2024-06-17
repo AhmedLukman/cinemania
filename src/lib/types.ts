@@ -173,6 +173,7 @@ export type TMovieDetailsResponse = TMediaBase & {
   title: string;
   images: TImageResponse;
   videos: TVideoResponse;
+  watchProviders: TWatchProvidersResponse;
 };
 
 export type TPerson = {
@@ -356,7 +357,8 @@ export type TMediaCategoryArray =
   | CreatedBy[]
   | Season[]
   | Episode[]
-  | Network[];
+  | Network[]
+  | Provider[];
 
 export type TMediaCategory =
   | TMovie
@@ -489,4 +491,25 @@ export type TCompanyDetails = {
   name: string;
   origin_country: string;
   parent_company: string;
+};
+
+export type Provider = {
+  logo_path: string;
+  provider_id: number;
+  provider_name: string;
+  display_priority: number;
+};
+
+export type CountryProviders = {
+  link: string;
+  flatrate?: Provider[];
+  rent?: Provider[];
+  buy?: Provider[];
+};
+
+export type TWatchProvidersResponse = {
+  id: number;
+  results: {
+    [countryCode: string]: CountryProviders;
+  };
 };
