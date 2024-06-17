@@ -3,11 +3,12 @@
 import { ImageSize } from "@/lib/constants";
 import { TWatchProvidersResponse } from "@/lib/types";
 import { dataUrl, getImageUrl } from "@/lib/utils";
-import { Card, Link, Select, SelectItem } from "@nextui-org/react";
+import { Avatar, Card, Link, Select, SelectItem } from "@nextui-org/react";
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import React, { useState } from "react";
 import MediaCategorySlider from "./sliders/MediaCategorySlider";
+import { getName } from "country-list";
 
 const ProviderCategorySlider = ({
   providers,
@@ -25,12 +26,17 @@ const ProviderCategorySlider = ({
           <h3 className="text-white z-10 text-2xl md:text-3xl font-serif font-bold">
             Watch Providers
           </h3>
-          <Link href={link} isExternal showAnchorIcon className="text-gray-500"/>
+          <Link
+            href={link}
+            isExternal
+            showAnchorIcon
+            className="text-gray-500"
+          />
         </div>
         <Select
           aria-label="Select frequency"
           variant="bordered"
-          className="text-white w-32 mr-2 md:mr-4"
+          className="text-white w-40 mr-2 md:mr-4"
           disallowEmptySelection
           selectedKeys={selectedKey}
           onSelectionChange={(keys) => setSelectedKey(keys as Set<string>)}
@@ -38,8 +44,19 @@ const ProviderCategorySlider = ({
             value: "!text-white",
           }}
         >
-          {countryCodes.map((country) => (
-            <SelectItem key={country}>{country}</SelectItem>
+          {countryCodes.map((countryCode) => (
+            <SelectItem
+              key={countryCode}
+              startContent={
+                <Avatar
+                  alt={getName(countryCode)}
+                  className="w-6 h-6"
+                  src={`https://flagcdn.com/24x18/${countryCode.toLowerCase()}.png`}
+                />
+              }
+            >
+              {getName(countryCode)}
+            </SelectItem>
           ))}
         </Select>
       </div>
