@@ -4,7 +4,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="absolute inset-0 flex justify-center items-center">
+    <div className="fixed inset-0 flex z-50 justify-center items-center">
       <CircularProgress color="secondary" size="lg" aria-label="Loading..." />
     </div>
   );
