@@ -21,8 +21,8 @@ const ProviderCategorySlider = ({
     providers.results[Array.from(selectedKey)[0]];
   return (
     <section>
-      <div className="flex p-5 md:pt-10 md:pb-14 md:px-20 justify-between items-center">
-        <div className="flex items-center justify-center gap-2">
+      <div className="flex p-5 md:pt-10 md:pb-14 md:px-20 justify-between items-center gap-5 md:gap-0">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-2">
           <h3 className="text-white z-10 text-2xl md:text-3xl font-serif font-bold">
             Watch Providers
           </h3>
@@ -61,7 +61,7 @@ const ProviderCategorySlider = ({
         </Select>
       </div>
 
-      <h4 className="text-white px-5 md:px-20 pb-8 text-2xl font-serif font-bold">
+      <h4 className="text-white px-5 md:px-20 pb-8 text-xl md:text-2xl font-serif font-bold">
         Flatrate
       </h4>
       {flatrate && flatrate.length > 0 ? (
@@ -86,7 +86,7 @@ const ProviderCategorySlider = ({
         <p className="text-red-500 px-5 md:px-20 mb-8">No data available</p>
       )}
 
-      <h4 className="text-white px-5 md:px-20 pb-8 text-2xl font-serif font-bold">
+      <h4 className="text-white px-5 md:px-20 pb-8 text-xl md:text-2xl font-serif font-bold">
         Buy
       </h4>
       {buy && buy.length > 0 ? (
@@ -111,7 +111,7 @@ const ProviderCategorySlider = ({
         <p className="text-red-500 px-5 md:px-20 mb-8">No data available</p>
       )}
 
-      <h4 className="text-white px-5 md:px-20 pb-8 text-2xl font-serif font-bold">
+      <h4 className="text-white px-5 md:px-20 pb-8 text-xl md:text-2xl font-serif font-bold">
         Rent
       </h4>
       {rent && rent.length > 0 ? (
