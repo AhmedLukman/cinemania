@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const MainLayout = ({ children }: PropsWithChildren) => {
   return (
-    <div className="flex flex-col justify-between min-h-screen">
+    <div className="flex flex-col justify-between min-h-[100svh]">
       <Header />
       <main className="flex-grow">{children}</main>
       <Footer />
