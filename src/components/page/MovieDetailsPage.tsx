@@ -12,7 +12,10 @@ import {
   TMovieDetailsResponse,
   TMediaLinks,
 } from "@/lib/types";
-import { getImageUrl } from "@/lib/utils";
+import {
+  getImageUrl,
+} from "@/lib/utils";
+import ProviderCategorySlider from "../ui/ProviderCategorySlider";
 
 const MovieDetailsPage = ({
   movie,
@@ -31,7 +34,6 @@ const MovieDetailsPage = ({
 }) => {
   const { cast, crew } = credits;
   const img = getImageUrl(collection.backdrop_path, ImageSize.Large);
-
   return (
     <>
       <PosterContainer media={movie}>
@@ -77,6 +79,8 @@ const MovieDetailsPage = ({
           </div>
         </div>
       )}
+
+      <ProviderCategorySlider providers={movie.watchProviders} />
 
       <MediaCategory
         media={cast}
