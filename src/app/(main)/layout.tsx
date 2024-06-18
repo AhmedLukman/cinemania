@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const MainLayout = ({ children }: PropsWithChildren) => {
   return (
-    <div className="flex relative flex-col justify-between min-h-[100svh]">
+    <div className="flex relative flex-col justify-between min-h-[100dvh]">
       <Header />
       <main>{children}</main>
       <Footer />

@@ -4,7 +4,7 @@ import Logo from "./Logo";
 
 const Footer = () => {
   return (
-    <footer className="px-10 h-[15svh] md:px-20 flex justify-between items-center text-white">
+    <footer className="px-10 h-[15dvh] md:px-20 flex justify-between items-center text-white">
       <Logo />
       <Image
         alt="TMDB logo"
